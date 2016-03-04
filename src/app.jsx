@@ -7,7 +7,9 @@
 
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import {Yes} from "./yes";
+import {Yes} from "yes";
+
+require("style/main.scss");
 
 function render() {
   ReactDOM.render(
@@ -19,5 +21,4 @@ render();
 
 if (module.hot) {
   module.hot.accept();
-  render(); 
 }
