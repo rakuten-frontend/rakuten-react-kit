@@ -7,7 +7,7 @@
 1. `npm install`
 
 ## Run server with HMR (Hot Module Replacement)
-1. `webpack-dev-server --content-base build --hot --inline`.
+1. `npm run hot`
 1. Do some change to `Yes` component. You can change `h1` for `p`.
 1. Your changes will be applied to your running app **without losing the state of your app**.
 
