@@ -23,6 +23,7 @@ module.exports = {
 
   module: {
     loaders: [
+      
       // Babel automatic loading
       { test: /\.jsx?$/, 
         exclude: /node_modules/, 
@@ -32,9 +33,15 @@ module.exports = {
      
       // Sass automatic loading
       {
-        test: /\.scss$/,
+        test: /\.scss$|\.saas$/,
         loaders: ["style", "css", "sass"]
+      },
+      
+      // Files
+      { test: /\.(png|jpg|jpeg|svg|woff|woff2|eot|ttf)$/,
+        loader: "file-loader"
       }
+      
     ]
     
   }
