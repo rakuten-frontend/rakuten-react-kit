@@ -5,10 +5,9 @@
  * -------------------------------
  */
 
-/// <reference path='../typings/tsd.d.ts'/>
-
+import * as ReactDOM from "react-dom";
 import * as React from "react";
 
-export let Yes = ({text}) => {
-  return <h1>Yes and yes {text}</h1>;
-};
+export function App({ text }) {
+  return <p>App says { text }</p>;
+}

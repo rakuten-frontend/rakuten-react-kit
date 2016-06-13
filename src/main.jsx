@@ -7,18 +7,16 @@
 
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import {Yes} from "yes";
+import { App } from "components/app";
 
 require("style/main.scss");
 
 function render() {
   ReactDOM.render(
-    <Yes text={"hello"} />, document.getElementById("app")
+    <App text={"Hello"} />, document.getElementById("app")
   );
-} 
+}
 
 render();
 
-if (module.hot) {
-  module.hot.accept();
-}
+if (module.hot) module.hot.accept();
