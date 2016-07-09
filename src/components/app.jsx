@@ -5,9 +5,15 @@
  * -------------------------------
  */
 
+// @flow
+
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 
-export function App({ text }) {
-  return <p>App says { text }</p>;
+export function App({ text } : { text: string } ) {
+  return (
+    <div>
+      <p>Rakuten says { text }</p>
+    </div>
+  );
 }

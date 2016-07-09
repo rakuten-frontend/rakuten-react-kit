@@ -1,0 +1,12 @@
+[ignore]
+.*/node_modules/.*
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^domain\/\(.*\)$' -> '<PROJECT_ROOT>/src/domain/\1'
+module.name_mapper.extension='css' -> '<PROJECT_ROOT>/css.js.flow'
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/css.js.flow'

@@ -5,15 +5,17 @@
  * -------------------------------
  */
 
+// @flow
+
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 import { App } from "components/app";
 
 require("style/main.scss");
 
-function render() {
+function render() : void {
   ReactDOM.render(
-    <App text={"Hello"} />, document.getElementById("app")
+    <App text={"hello"} />, document.getElementById("app")
   );
 }
 
