@@ -14,6 +14,7 @@ import { createStore } from "redux";
 
 import { getLogger } from "domain/logger";
 import { startRouters, marsRouter, defaultRouter } from "domain/middleware/router";
+import type { State } from "domain/store/state/main";
 import { reduceApp } from "domain/store/reduce/main";
 import { updateCurrentPageAction } from "domain/store/actions/main";
 import { App } from "components/app";
@@ -26,9 +27,16 @@ const store = createStore(reduceApp);
 
 function render() : void {
   logger.time("Render");
+
+  const state : State = store.getState();
+  const text = "hello";
+  const currentPageName = state.currentPage.name;
+
   ReactDOM.render(
-    <App text={"hello"} />, document.getElementById("app")
+    <App text={text} currentPageName={currentPageName} />,
+    document.getElementById("app")
   );
+
   logger.timeEnd("Render");
 }
 
@@ -51,7 +59,8 @@ function startRouterMiddleware() : void {
 
 }
 
-render();
+store.subscribe(render);
 startRouterMiddleware();
+
 
 if (module.hot) module.hot.accept();
