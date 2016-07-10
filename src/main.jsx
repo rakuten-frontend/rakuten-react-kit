@@ -29,8 +29,13 @@ function render() : void {
 
 function startRouterMiddleware() : void {
 
-  function onMarsRoute() {};
-  function onDefaultRoute() {};
+  function onMarsRoute(ctx) {
+    logger.debug("Mars route");
+  };
+
+  function onDefaultRoute(ctx) {
+    logger.debug("Default route");
+  };
 
   startRouters([
     partial(marsRouter, onMarsRoute ),

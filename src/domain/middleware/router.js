@@ -11,16 +11,17 @@ import page from "page";
 import { each } from "lodash";
 
 type Router = () => void;
+type OnRoute = (ctx: Object) => void;
 
-export function marsRouter(f : Router) {
-  page("/mars/photos", f );
+export function marsRouter(onRoute : OnRoute) {
+  page("/mars/photos", onRoute );
 }
 
-export function defaultRouter(f : Router) {
-  page("*", f );
+export function defaultRouter(onRoute : OnRoute) {
+  page("*", onRoute );
 }
 
 export function startRouters(routers : Array<Router>) {
-  each(routers, (f) => f());
+  each(routers, (router : Router) => router());
   page();
 }
