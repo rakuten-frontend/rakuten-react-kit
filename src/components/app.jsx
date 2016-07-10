@@ -10,17 +10,22 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 
-import { Mars } from "components/mars";
+import { Users } from "components/users";
 
 export function App({ text, currentPageName } :
                     { text: string, currentPageName: string } ) {
 
   const content = ((pageName) => {
     switch (pageName) {
-      case "MARS_PAGE":
-        return <Mars />;
+      case "USERS_PAGE":
+        return <Users />;
       default:
-        return <p> Rakuten says {text} </p>
+        return(
+          <div>
+            <p> Rakuten says {text} </p>
+            <a href="/users">List of users</a>
+          </div>
+        );
     }
   })(currentPageName);
 

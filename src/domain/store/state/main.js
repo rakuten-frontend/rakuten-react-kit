@@ -7,14 +7,14 @@
 
 // @flow
 
-export type MarsPage = { name: "MARS_PAGE" };
+export type UsersPage = { name: "USERS_PAGE" };
 export type HomePage = { name: "HOME_PAGE" };
-export type Page = MarsPage | HomePage;
+export type Page = UsersPage | HomePage;
 
 export type State = {
   currentPage: Page
 };
 
 export const defaultState = {
-  currentPage: { name: "MARS_PAGE" }
+  currentPage: { name: "HOME_PAGE" }
 }

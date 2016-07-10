@@ -14,7 +14,7 @@ type Router = () => void;
 type OnRoute = (ctx: Object) => void;
 
 export function marsRouter(onRoute : OnRoute) {
-  page("/mars/", onRoute );
+  page("/users/", onRoute );
 }
 
 export function defaultRouter(onRoute : OnRoute) {

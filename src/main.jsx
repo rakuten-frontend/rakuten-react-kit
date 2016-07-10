@@ -14,6 +14,7 @@ import { createStore } from "redux";
 
 import { getLogger } from "domain/logger";
 import { startRouters, marsRouter, defaultRouter } from "domain/middleware/router";
+import { getUsers } from "domain/middleware/network";
 import type { State } from "domain/store/state/main";
 import { reduceApp } from "domain/store/reduce/main";
 import { updateCurrentPageAction } from "domain/store/actions/main";
@@ -40,11 +41,16 @@ function render() : void {
   logger.timeEnd("Render");
 }
 
+function onUsersFromNetwork(pictures : Array<string>) {
+  logger.debug("Users from network");
+}
+
 function startRouterMiddleware() : void {
 
-  function onMarsRoute(ctx) {
-    logger.debug("Mars route");
-    store.dispatch(updateCurrentPageAction({ name: "MARS_PAGE" }));
+  function onUsersRoute(ctx) {
+    logger.debug("Users route");
+    getUsers().then(onUsersFromNetwork);
+    store.dispatch(updateCurrentPageAction({ name: "USERS_PAGE" }));
   };
 
   function onDefaultRoute(ctx) {
@@ -53,7 +59,7 @@ function startRouterMiddleware() : void {
   };
 
   startRouters([
-    partial(marsRouter, onMarsRoute ),
+    partial(marsRouter, onUsersRoute ),
     partial(defaultRouter, onDefaultRoute )
   ]);
 

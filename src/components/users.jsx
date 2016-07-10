@@ -10,10 +10,10 @@
 import * as ReactDOM from "react-dom";
 import * as React from "react";
 
-export function Mars({}) {
+export function Users() {
   return(
     <div>
-      <p>This is Mars.</p>
+      <p>List of users</p>
     </div>
   );
 }
