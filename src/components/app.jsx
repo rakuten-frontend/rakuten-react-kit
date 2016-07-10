@@ -12,13 +12,15 @@ import * as React from "react";
 
 import { Users } from "components/users";
 
-export function App({ text, currentPageName } :
-                    { text: string, currentPageName: string } ) {
+export function App({ text, currentPageName, users } :
+                    { text: string,
+                      currentPageName: string,
+                      users : Array<{firstName: string, lastName: string}> } ) {
 
   const content = ((pageName) => {
     switch (pageName) {
       case "USERS_PAGE":
-        return <Users />;
+        return <Users users={users} />;
       default:
         return(
           <div>

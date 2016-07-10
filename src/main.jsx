@@ -15,9 +15,9 @@ import { createStore } from "redux";
 import { getLogger } from "domain/logger";
 import { startRouters, marsRouter, defaultRouter } from "domain/middleware/router";
 import { getUsers } from "domain/middleware/network";
-import type { State } from "domain/store/state/main";
+import type { State, User } from "domain/store/state/main";
 import { reduceApp } from "domain/store/reduce/main";
-import { updateCurrentPageAction } from "domain/store/actions/main";
+import { updateCurrentPageAction, updateUsersAction } from "domain/store/actions/main";
 import { App } from "components/app";
 
 require("style/main.scss");
@@ -32,17 +32,19 @@ function render() : void {
   const state : State = store.getState();
   const text = "hello";
   const currentPageName = state.currentPage.name;
+  const users = state.users;
 
   ReactDOM.render(
-    <App text={text} currentPageName={currentPageName} />,
+    <App text={text} currentPageName={currentPageName} users={users} />,
     document.getElementById("app")
   );
 
   logger.timeEnd("Render");
 }
 
-function onUsersFromNetwork(pictures : Array<string>) {
+function onUsersFromNetwork(users : Array<User>) {
   logger.debug("Users from network");
+  store.dispatch(updateUsersAction(users));
 }
 
 function startRouterMiddleware() : void {
