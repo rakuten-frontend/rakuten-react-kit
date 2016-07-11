@@ -21,7 +21,7 @@ module.exports = {
 
     root: [
       path.resolve("node_modules"),
-      path.resolve("src"),
+      path.resolve("src")
     ] ,
 
     extensions:
@@ -64,4 +64,4 @@ module.exports = {
       ]
     }
   }
-}
+};
