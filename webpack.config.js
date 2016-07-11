@@ -1,5 +1,5 @@
 /*
- * Rakuten React Starter Kit ES6
+ * Rakuten React kit
  *
  * Copyright © 2016 Rakuten, Inc. All rights reserved.
  *
