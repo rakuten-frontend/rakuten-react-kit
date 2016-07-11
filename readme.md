@@ -1,4 +1,4 @@
-# Rakuten React starter kit
+# Rakuten React kit
 
 **Install**
 
