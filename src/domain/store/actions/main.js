@@ -16,7 +16,7 @@ export const actionNames = {
   UPDATE_USERS: "UPDATE_USERS"
 }
 
-// FIXME Is there a way to get aciton types from actionNames?
+// FIXME Is there a way to get action types from actionNames?
 export type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
   page: Page
