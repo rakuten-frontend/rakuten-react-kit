@@ -8,20 +8,38 @@
 // @flow
 
 import page from "page";
-import { each } from "lodash";
+import { partial } from "lodash";
 
-type Router = () => void;
+import { getLogger } from "domain/logger";
+
+import { store } from "domain/store/main";
+import { getUsers, onUsersFromNetwork } from "domain/middleware/network";
+import { updateCurrentPageAction } from "domain/store/actions/main";
+
+const logger = getLogger("Middleware/router");
+
 type OnRoute = (ctx: Object) => void;
 
-export function marsRouter(onRoute : OnRoute) {
+function usersRouter(onRoute : OnRoute) {
   page("/users/", onRoute );
 }
 
-export function defaultRouter(onRoute : OnRoute) {
+function defaultRouter(onRoute : OnRoute) {
   page("*", onRoute );
 }
 
-export function startRouters(routers : Array<Router>) {
-  each(routers, (router : Router) => router());
+export function startRouters() {
+
+  usersRouter((ctx) => {
+    logger.debug("Users route");
+    getUsers().then(onUsersFromNetwork);
+    store.dispatch(updateCurrentPageAction({ name: "USERS_PAGE" }));
+  });
+
+  defaultRouter((ctx) => {
+    logger.debug("Default route");
+    store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
+  });
+
   page();
 }
