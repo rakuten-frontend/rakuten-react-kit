@@ -24,7 +24,6 @@ require("style/main.scss");
 
 const logger = getLogger("Main");
 
-
 function render() : void {
   logger.time("Render");
 
