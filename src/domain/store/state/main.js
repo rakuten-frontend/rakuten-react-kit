@@ -22,4 +22,4 @@ export type State = {
 export const defaultState = {
   currentPage: { name: "HOME_PAGE" },
   users: []
-}
+};

@@ -14,7 +14,7 @@ import type { Page, User } from "domain/store/state/main";
 export const actionNames = {
   UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
   UPDATE_USERS: "UPDATE_USERS"
-}
+};
 
 // FIXME Is there a way to get action types from actionNames?
 export type UpdateCurrentPageAction = {
