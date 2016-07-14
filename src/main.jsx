@@ -43,4 +43,7 @@ function render() : void {
 store.subscribe(render);
 startRouters();
 
-if (module.hot) module.hot.accept();
+if (module.hot) {
+  module.hot.accept();
+  render();
+}
