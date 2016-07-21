@@ -18,7 +18,6 @@
 // @flow
 
 import $ from "jquery";
-import { map } from "lodash";
 
 import { getLogger } from "domain/logger";
 
@@ -35,12 +34,16 @@ export function getUsers() {
   const d = $.Deferred();
 
   // Make the network call via ajax
-  $.getJSON("http://reqres.in/api/users?page=2").then((response) => {
-
+  $.getJSON("http://reqres.in/api/users?page=2").then( (response) => {
     // Whenever it is ready, resolve the event and set its result
-    d.resolve(map(response.data,
-      (datum) => {
-        return {firstName: datum.first_name, lastName: datum.last_name}}))});
+    d.resolve(response.data.map( (datum) => {
+      return {
+        firstName: datum.first_name,
+        lastName: datum.last_name
+      };
+    } ));
+
+  });
 
   // Return the promise of a response
   return d.promise();

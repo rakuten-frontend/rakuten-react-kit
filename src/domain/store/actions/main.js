@@ -25,14 +25,13 @@ export const actionNames = {
   UPDATE_USERS: "UPDATE_USERS"
 };
 
-// FIXME Is there a way to get action types from actionNames?
 export type UpdateCurrentPageAction = {
-  type: "UPDATE_CURRENT_PAGE",
+  type: actionNames.UPDATE_CURRENT_PAGE,
   page: Page
 }
 
 export type UpdateUsersAction = {
-  type: "UPDATE_USERS",
+  type: actionNames.UPDATE_USERS,
   users: Array<User>
 }
 
