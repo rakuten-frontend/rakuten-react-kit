@@ -7,6 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/store/state/main.js
+ * This file is reponsible to handle all store states.
+ */
+
 // @flow
 
 export type UsersPage = { name: "USERS_PAGE" };
@@ -23,3 +28,7 @@ export const defaultState = {
   currentPage: { name: "HOME_PAGE" },
   users: []
 };
+
+/*
+ * EOF: src/domain/store/state/main.js
+ */

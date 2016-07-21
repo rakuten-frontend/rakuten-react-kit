@@ -7,6 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/middleware/router.js
+ *
+ * This file represents the 'router actor' in your application. It means that
+ * this file should contain handlers needed to dispach all actions related to
+ * routing activities.
+ */
+
 // @flow
 
 import page from "page";
@@ -45,3 +53,7 @@ export function startRouters() {
 
   page();
 }
+
+/*
+ * EOF: src/domain/middleware/router.js
+ */

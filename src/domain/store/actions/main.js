@@ -7,6 +7,15 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/store/actions/main.js
+ *
+ * This file defines the actions for your appliation. It can be broken down
+ * into many different files depending on the size of your application. If you
+ * slice it, make sure to keep name consistense and make this file as an index
+ * for all those other files.
+ */
+
 // @flow
 
 import type { Page, User } from "domain/store/state/main";
@@ -36,3 +45,7 @@ export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
 export function updateUsersAction(users: Array<User>) {
   return { type: actionNames.UPDATE_USERS, users}
 }
+
+/*
+ * EOF: src/domain/store/actions/main.js
+ */

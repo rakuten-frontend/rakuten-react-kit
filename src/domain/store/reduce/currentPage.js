@@ -7,6 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/store/reduce/currentPage.js
+ * This file is responsible for reduce and update store state for current page.
+ */
 
 // @flow
 
@@ -20,3 +24,7 @@ export function updateCurrentPage( state : State, page: Page ) : State {
   logger.debug(`Update current page ${page.name}`);
   return new Map(state).set("currentPage", page).toJS();
 }
+
+/*
+ * EOF: src/domain/store/reduce/currentPage.js
+ */
