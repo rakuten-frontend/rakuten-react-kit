@@ -7,6 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/store/reduce/users.js
+ * This file is responsible for reduce and update store state for users.
+ */
+
 // @flow
 
 import { Map } from "immutable";
@@ -20,3 +25,7 @@ export function updateUsers(state : State, users: Array<User>) : State {
   logger.debug(`Update users ${map(users, (user) => user.firstName)}`);
   return new Map(state).set("users", users).toJS();
 }
+
+/*
+ * EOF: src/domain/store/reduce/users.js
+ */

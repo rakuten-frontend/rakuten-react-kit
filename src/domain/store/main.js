@@ -7,9 +7,19 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/domain/store/main.js
+ * This file is the 'index' file from store.
+ */
+
 // @flow
 
 import { createStore } from "redux";
 import { reduceApp } from "domain/store/reduce/main";
 
+// Create the store and make it an importable constant
 export const store = createStore(reduceApp);
+
+/*
+ * EOF: src/domain/store/main.js
+ */

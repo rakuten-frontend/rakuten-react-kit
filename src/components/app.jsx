@@ -7,6 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/*
+ * BOF: src/components/app.jsx
+ * This file defines the 'app' component and how it will be rendered.
+ */
+
 // @flow
 
 import * as ReactDOM from "react-dom";
@@ -14,11 +19,14 @@ import * as React from "react";
 
 import { Users } from "components/users";
 
+// Define App as an importable function
 export function App({ text, currentPageName, users } :
                     { text: string,
                       currentPageName: string,
                       users : Array<{firstName: string, lastName: string}> } ) {
 
+  // Define a 'content' variable which outputs content
+  // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
       case "USERS_PAGE":
@@ -33,9 +41,14 @@ export function App({ text, currentPageName, users } :
     }
   })(currentPageName);
 
+  // Return the component structure in HTML
   return (
     <div>
       { content }
     </div>
   );
 }
+
+/*
+ * EOF: src/components/app.jsx
+ */
