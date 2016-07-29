@@ -16,17 +16,22 @@
 
 import * as ReactDOM from "react-dom";
 import * as React from "react";
-import { map } from "lodash";
 
 // Exports Users as a importable function
 export function Users( { users } :
                        { users: Array<{firstName: string, lastName: string}> }) {
 
-  // Run over users' list and return its elements formatted as HTML.
-  const content = map(users, (user, index) =>
-    <li key={index}>
-      {`First name: ${user.firstName}, last name: ${user.lastName}`}
-    </li>);
+  const content = users.map( (user, index) => {
+    if (user === undefined) {
+      return '';
+    }
+
+    return (
+      <li key={index}>
+        {`First name: ${user.firstName}, last name: ${user.lastName}`}
+      </li>
+    );
+  });
 
   // Return the component structure in HTML
   return(
