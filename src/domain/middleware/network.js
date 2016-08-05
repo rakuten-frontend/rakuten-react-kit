@@ -17,7 +17,7 @@
 
 // @flow
 
-import $ from "jquery";
+import axios from "axios";
 
 import { getLogger } from "domain/logger";
 
@@ -29,24 +29,21 @@ const logger = getLogger("Middleware/network");
 
 // Make getUsers a importable function
 export function getUsers() {
-
-  // Define the postponable variable
-  const d = $.Deferred();
-
-  // Make the network call via ajax
-  $.getJSON("http://reqres.in/api/users?page=2").then( (response) => {
-    // Whenever it is ready, resolve the event and set its result
-    d.resolve(response.data.map( (datum) => {
-      return {
-        firstName: datum.first_name,
-        lastName: datum.last_name
-      };
-    } ));
-
-  });
-
-  // Return the promise of a response
-  return d.promise();
+  // Make the network call via ajax using axios
+  return axios.get("http://reqres.in/api/users?page=2")
+      // Whenever it is ready, it will resolve the event and set its result
+       .then(response => {
+         return response.data.data.map( (datum) => {
+           return {
+             firstName: datum.first_name,
+             lastName: datum.last_name
+           };
+         });
+       })
+       // Or it will throw an error
+      .catch( err => {
+        console.error(err);
+      });
 }
 
 // Make onUsersFromNetwork a importable function
