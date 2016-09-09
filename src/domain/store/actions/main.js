@@ -26,12 +26,12 @@ export const actionNames = {
 };
 
 export type UpdateCurrentPageAction = {
-  type: actionNames.UPDATE_CURRENT_PAGE,
+  type: "UPDATE_CURRENT_PAGE",
   page: Page
 }
 
 export type UpdateUsersAction = {
-  type: actionNames.UPDATE_USERS,
+  type: "UPDATE_USERS",
   users: Array<User>
 }
 
