@@ -20,11 +20,6 @@
 
 import type { Page, User } from "domain/store/state/main";
 
-export const actionNames = {
-  UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
-  UPDATE_USERS: "UPDATE_USERS"
-};
-
 export type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
   page: Page
@@ -38,11 +33,11 @@ export type UpdateUsersAction = {
 export type Action = UpdateCurrentPageAction | UpdateUsersAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
-  return { type: actionNames.UPDATE_CURRENT_PAGE, page };
+  return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
 export function updateUsersAction(users: Array<User>) {
-  return { type: actionNames.UPDATE_USERS, users}
+  return { type: "UPDATE_USERS", users}
 }
 
 /*
