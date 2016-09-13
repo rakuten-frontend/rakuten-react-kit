@@ -36,15 +36,9 @@ The starter kit for React applications from Rakuten.
 
 ### 1. Install Node.js
 
-Download from the Node.js [official site](https://nodejs.org/en/), or use your prefered package management software.
+Download from the Node.js [official site](https://nodejs.org/en/), or use your preferred package management software.
 
-### 2. Install Webpack
-
-```
-npm install -g webpack webpack-dev-server
-```
-
-### 3.  Install Node dependencies
+### 2.  Install Node dependencies
 
 ```
 npm install
