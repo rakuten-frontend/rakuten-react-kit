@@ -10,10 +10,9 @@
 /*
  * BOF: src/domain/store/actions/main.js
  *
- * This file defines the actions for your appliation. It can be broken down
+ * This file defines the actions for your application. It can be broken down
  * into many different files depending on the size of your application. If you
- * slice it, make sure to keep name consistense and make this file as an index
- * for all those other files.
+ * do, keep naming consistent and use this file as an index.
  */
 
 // @flow

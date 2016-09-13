@@ -9,7 +9,7 @@
 
 /*
  * BOF: src/domain/store/main.js
- * This file is the 'index' file from store.
+ * This file is the 'index' file of the store.
  */
 
 // @flow

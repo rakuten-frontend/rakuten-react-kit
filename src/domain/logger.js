@@ -9,7 +9,7 @@
 
 /*
  * BOF: src/domain/logger.js
- * This file defines the 'logger' to allow us output in the console.
+ * This file defines our 'logger' middleware.
  */
 
 // @flow
