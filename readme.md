@@ -65,7 +65,7 @@ See more about Hot Module Replacement [here](https://webpack.github.io/docs/hot-
 Create minified bundle for deployment in the `build` directory
 
 ```
-npm build
+npm run build
 ```
 
 ## Disclaimer
