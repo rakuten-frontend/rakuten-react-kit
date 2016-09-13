@@ -14,7 +14,6 @@
 
 // @flow
 
-import * as ReactDOM from "react-dom";
 import * as React from "react";
 
 import { Users } from "components/users";

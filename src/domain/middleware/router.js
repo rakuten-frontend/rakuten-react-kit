@@ -17,7 +17,6 @@
 // @flow
 
 import page from "page";
-import { partial } from "lodash";
 
 import { getLogger } from "domain/logger";
 
