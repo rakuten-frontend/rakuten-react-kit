@@ -9,7 +9,7 @@
 
 /*
  * BOF: src/domain/store/reduce/users.js
- * This file is responsible for reduce and update store state for users.
+ * This file is responsible for updating 'users' in our state.
  */
 
 // @flow

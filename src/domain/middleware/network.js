@@ -10,9 +10,8 @@
 /*
  * BOF: src/domain/middleware/network.js
  *
- * This file represents the 'network actor' in your application. It means that
- * this file should contain handlers needed to dispach all actions related to
- * network activities, including but not limited to API calls.
+ * This file represents the 'network actor' in your application.
+ * It contains handlers which dispatch all actions as a result of network events.
  */
 
 // @flow
@@ -33,10 +32,10 @@ export function getUsers() {
   return axios.get("http://reqres.in/api/users?page=2")
       // Whenever it is ready, it will resolve the event and set its result
        .then(response => {
-         return response.data.data.map( (datum) => {
+         return response.data.data.map( (user) => {
            return {
-             firstName: datum.first_name,
-             lastName: datum.last_name
+             firstName: user.first_name,
+             lastName: user.last_name
            };
          });
        })

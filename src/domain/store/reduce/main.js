@@ -11,7 +11,7 @@
  * BOF: src/domain/store/reduce/main.js
  *
  * This file is the 'index' of application store reducers. It is responsible
- * for update the current store state according to actions types.
+ * for updating the current store state according to actions types.
  */
 
 // @flow

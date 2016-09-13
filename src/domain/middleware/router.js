@@ -10,9 +10,8 @@
 /*
  * BOF: src/domain/middleware/router.js
  *
- * This file represents the 'router actor' in your application. It means that
- * this file should contain handlers needed to dispach all actions related to
- * routing activities.
+ * This file represents the 'router actor' in your application.
+ * It contains handlers which dispatch all actions as a result of url routing events.
  */
 
 // @flow
