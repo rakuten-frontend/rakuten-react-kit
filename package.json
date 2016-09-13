@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hot": "webpack-dev-server --content-base build --hot --inline --port 9090"
+    "start": "webpack-dev-server --content-base build --hot --inline --port 9090",
+    "build": "webpack -p"
   },
   "author": "Adam Munoz",
   "license": "MIT",
