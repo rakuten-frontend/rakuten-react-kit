@@ -11,6 +11,7 @@
 [include]
 
 [libs]
+flow
 
 [options]
 module.name_mapper='^components\/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
