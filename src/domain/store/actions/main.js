@@ -10,39 +10,33 @@
 /*
  * BOF: src/domain/store/actions/main.js
  *
- * This file defines the actions for your appliation. It can be broken down
+ * This file defines the actions for your application. It can be broken down
  * into many different files depending on the size of your application. If you
- * slice it, make sure to keep name consistense and make this file as an index
- * for all those other files.
+ * do, keep naming consistent and use this file as an index.
  */
 
 // @flow
 
 import type { Page, User } from "domain/store/state/main";
 
-export const actionNames = {
-  UPDATE_CURRENT_PAGE: "UPDATE_CURRENT_PAGE",
-  UPDATE_USERS: "UPDATE_USERS"
-};
-
 export type UpdateCurrentPageAction = {
-  type: actionNames.UPDATE_CURRENT_PAGE,
+  type: "UPDATE_CURRENT_PAGE",
   page: Page
 }
 
 export type UpdateUsersAction = {
-  type: actionNames.UPDATE_USERS,
+  type: "UPDATE_USERS",
   users: Array<User>
 }
 
 export type Action = UpdateCurrentPageAction | UpdateUsersAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
-  return { type: actionNames.UPDATE_CURRENT_PAGE, page };
+  return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
 export function updateUsersAction(users: Array<User>) {
-  return { type: actionNames.UPDATE_USERS, users}
+  return { type: "UPDATE_USERS", users}
 }
 
 /*

@@ -1,42 +1,69 @@
 # Rakuten React kit
 
-The starter kit for react applications from Rakuten.
-
-## Install
-
-1. `npm install -g webpack`
-1. `npm install -g webpack-dev-server`
-1. `npm install`
-
-**Run server with HMR (Hot Module Replacement)**
-
-1. `npm run hot`
-1. Do some changes.
-1. Your changes will be applied to your running app **without losing the state of your app**.
-
-**Be careful**
-
-This is an experimental project. Use it in production with caution.
+The starter kit for React applications from Rakuten.
 
 ## Structure
-
-All source-code can be found at `src/` folder.
-
+```
+/
+├── build/                   
+│   ├──   index.html
+│   └──   bundle.js          : Application bundle
+│
+├── node_modules/            : Node dependencies
+│
+├── src/
+│   ├── components/          : Application Components
+│   ├── domain/              : Business Logic
+│   │    ├── Middleware/     : Actors who dispatch the actions
+│   │    └── Store/        
+│   │         ├── actions/   
+│   │         ├── reducers/   
+│   │         └── state/  
+│   │
+│   ├── style/               : Global Styles
+│   └── main.jsx             : Application Entry Point
+│
+│
+├── .gitignore               
+├── .flowconfig              
+├── .css.js.flow             
+├── package.json             
+├── readme.md                
+└── webpack.config.js        : Webpack config file
 ```
 
-/ (root)
-|--- build/          (outputs)
-|--- src/            (source-code)
-|------ components/  (application components)     
-|--- domain/         (business logic)
-|------ middleware/  (actors who dispatch actions)        
-|------ store/       (the store)
-|---------- actions/ (application actions)
-|---------- reduce/  (store reducers)
-|---------- state/   (store states)
-|--- style/          (style sheets)
+## Setup
+
+### 1. Install Node.js
+
+Download from the Node.js [official site](https://nodejs.org/en/), or use your preferred package management software.
+
+### 2.  Install Node dependencies
 
 ```
+npm install
+```
+
+
+## Development
+
+Run server with HMR (Hot Module Replacement) at [localhost:9090](http://localhost:9090)
+
+```
+npm start
+```
+See more about Hot Module Replacement [here](https://webpack.github.io/docs/hot-module-replacement.html)
+
+## Production
+
+Create minified bundle for deployment in the `build` directory
+
+```
+npm run build
+```
+
+## Disclaimer
+This is an experimental project. Use it in production with caution.
 
 ## License
 

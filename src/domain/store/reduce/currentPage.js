@@ -9,7 +9,7 @@
 
 /*
  * BOF: src/domain/store/reduce/currentPage.js
- * This file is responsible for reduce and update store state for current page.
+ * This file is responsible for updating 'currentPage' in our state.
  */
 
 // @flow

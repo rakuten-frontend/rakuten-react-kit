@@ -14,7 +14,6 @@
 
 // @flow
 
-import * as ReactDOM from "react-dom";
 import * as React from "react";
 
 // Exports Users as a importable function

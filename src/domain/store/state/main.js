@@ -9,7 +9,7 @@
 
 /*
  * BOF: src/domain/store/state/main.js
- * This file is reponsible to handle all store states.
+ * This file is contains our application state and type definitions.
  */
 
 // @flow

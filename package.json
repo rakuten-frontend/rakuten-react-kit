@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "hot": "webpack-dev-server --content-base build --hot --inline --port 9090",
-    "build": "webpack --minify -p"
+    "start": "webpack-dev-server --content-base build --hot --inline --port 9090",
+    "flow-server": "flow server",
+    "flow": "flow || true",
+    "build": "webpack -p"
   },
   "author": "Adam Munoz",
   "license": "MIT",
@@ -19,6 +21,7 @@
     "css-loader": "^0.23.1",
     "empty": "^0.10.1",
     "file-loader": "^0.8.5",
+    "flow-bin": "^0.32.0",
     "lodash": "^4.13.1",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
