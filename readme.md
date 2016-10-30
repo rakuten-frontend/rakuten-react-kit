@@ -1,6 +1,6 @@
 # Rakuten React kit
 
-The starter kit for React applications from Rakuten.
+Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
 
 ## Structure
 ```
