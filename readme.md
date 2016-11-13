@@ -31,20 +31,6 @@ Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
 ├── readme.md                
 └── webpack.config.js        : Webpack config file
 ```
-
-## Setup
-
-### 1. Install Node.js
-
-Download from the Node.js [official site](https://nodejs.org/en/), or use your preferred package management software.
-
-### 2.  Install Node dependencies
-
-```
-npm install
-```
-
-
 ## Development
 
 Run server with HMR (Hot Module Replacement) at [localhost:9090](http://localhost:9090)
