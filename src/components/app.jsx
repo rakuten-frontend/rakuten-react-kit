@@ -18,11 +18,16 @@ import * as React from "react";
 
 import { Users } from "components/users";
 
+import type { State } from "domain/store/state/main";
+
 // Define App as an importable function
-export function App({ text, currentPageName, users } :
-                    { text: string,
-                      currentPageName: string,
-                      users : Array<{firstName: string, lastName: string}> } ) {
+export function App({ state } :
+                    { state: State} ) {
+
+  // Select your props from the state
+  const text = "hello";
+  const currentPageName = state.currentPage.name;
+  const users = state.users;
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
@@ -39,6 +44,7 @@ export function App({ text, currentPageName, users } :
         );
     }
   })(currentPageName);
+
 
   // Return the component structure in HTML
   return (
