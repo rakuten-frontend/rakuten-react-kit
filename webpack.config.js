@@ -11,31 +11,40 @@ var path = require('path');
 module.exports = {
 
   entry: "./src/main",
+  cache: true,
 
   output: {
-    path: "./build",
+    path: path.resolve(__dirname, "build"),
+    publicPath: '/',
     filename: "bundle.js"
   },
 
   resolve: {
 
-    root: [
+    modules: [
       path.resolve("node_modules"),
       path.resolve("src")
     ] ,
 
     extensions:
-      ["", ".webpack.js", ".web.js", ".js", ".jsx", ".scss", ".sass" ]
+      [".webpack.js", ".web.js", ".js", ".jsx", ".scss", ".sass" ]
 
   },
 
+  devServer: {
+    quiet: true,
+    historyApiFallback: {
+      index: "index.html"
+    }
+  },
+
   module: {
-    loaders: [
+    rules: [
 
       // Babel automatic loading
       { test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel",
+        loader: "babel-loader",
         query: {
           presets: ["react", "es2015"],
           plugins: ["transform-flow-strip-types"]
@@ -45,23 +54,15 @@ module.exports = {
       // Sass automatic loading
       {
         test: /\.scss$|\.saas$/,
-        loaders: ["style", "css", "sass"]
+        use: ['css-loader', 'sass-loader']
       },
 
       // Files
       { test: /\.(png|jpg|jpeg|svg|woff|woff2|eot|ttf)$/,
-        loader: "file-loader"
+        use: "file-loader"
       }
 
     ]
 
-  },
-
-  devServer: {
-    historyApiFallback: {
-      index: "index.html",
-      rewrites: [
-      ]
-    }
   }
 };

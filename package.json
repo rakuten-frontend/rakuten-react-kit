@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && webpack-dev-server --content-base build --hot --inline --port 9090",
+    "start": "npm install && webpack-dev-server --content-base='build' --hot=true --port 9090 --config='./webpack.config.js'",
     "flow-server": "flow server",
     "flow": "flow || true",
-    "build": "webpack -p"
+    "build": "npm install && webpack -p --config='./webpack.config.js'"
   },
   "author": "Adam Munoz",
   "license": "MIT",
@@ -34,8 +34,8 @@
     "node-sass": "^4.5.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
     "axios": "^0.15.3",
