@@ -8,6 +8,8 @@
  */
 
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var extractStyles = new ExtractTextPlugin('style.css');
 module.exports = {
 
   entry: "./src/main",
@@ -38,6 +40,7 @@ module.exports = {
     }
   },
 
+  plugins: [extractStyles],
   module: {
     rules: [
 
@@ -50,10 +53,16 @@ module.exports = {
         }
       },
 
+      // CSS automatic loading
+      {
+        test: /\.css$/,
+        use: extractStyles.extract(['css-loader'])
+      },
+
       // Sass automatic loading
       {
         test: /\.scss$|\.saas$/,
-        use: ['css-loader', 'sass-loader']
+        use: extractStyles.extract(['css-loader', 'sass-loader'])
       },
 
       // Files
