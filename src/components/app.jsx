@@ -16,7 +16,7 @@
 
 import * as React from "react";
 
-import { Users } from "components/users";
+import { List } from "components/list";
 
 import type { State } from "domain/store/state/main";
 
@@ -27,19 +27,19 @@ export function App({ state } :
   // Select your props from the state
   const text = "hello";
   const currentPageName = state.currentPage.name;
-  const users = state.users;
+  const list = state.list;
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
-      case "USERS_PAGE":
-        return <Users users={users} />;
+      case "LIST_PAGE":
+        return <List list={list} />;
       default:
         return(
           <div>
             <p> Rakuten says {text} </p>
-            <a href="/users">List of users</a>
+            <a href="/list">List of items</a>
           </div>
         );
     }

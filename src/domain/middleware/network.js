@@ -21,21 +21,23 @@ import axios from "axios";
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import type { User } from "domain/store/state/main";
-import { updateUsersAction } from "domain/store/actions/main";
+import type { Item } from "domain/store/state/main";
+import { updateListAction } from "domain/store/actions/main";
 
 const logger = getLogger("Middleware/network");
 
-// Make getUsers a importable function
-export function getUsers() {
+const URL = 'http://pokeapi.co/api/v2/type/1/';
+
+// Make getList a importable function
+export function getList() {
   // Make the network call via ajax using axios
-  return axios.get("http://reqres.in/api/users?page=2")
+  return axios.get(URL)
       // Whenever it is ready, it will resolve the event and set its result
        .then(response => {
-         return response.data.data.map( (user) => {
+         return response.data.pokemon.map(obj => {
            return {
-             firstName: user.first_name,
-             lastName: user.last_name
+             name: obj.pokemon.name,
+             url: obj.pokemon.url
            };
          });
        })
@@ -45,11 +47,11 @@ export function getUsers() {
       });
 }
 
-// Make onUsersFromNetwork a importable function
-export function onUsersFromNetwork(users : Array<User>) {
-  logger.debug("Users from network");
+// Make onListFromNetwork a importable function
+export function onListFromNetwork(list : Array<Item>) {
+  logger.debug("List from network");
   // Dispatch an action ...
-  store.dispatch(updateUsersAction(users));
+  store.dispatch(updateListAction(list));
 }
 
 /*

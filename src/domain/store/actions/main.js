@@ -17,26 +17,26 @@
 
 // @flow
 
-import type { Page, User } from "domain/store/state/main";
+import type { Page, Item } from "domain/store/state/main";
 
 export type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
   page: Page
 }
 
-export type UpdateUsersAction = {
-  type: "UPDATE_USERS",
-  users: Array<User>
+export type UpdateListAction = {
+  type: "UPDATE_LIST",
+  list: Array<Item>
 }
 
-export type Action = UpdateCurrentPageAction | UpdateUsersAction;
+export type Action = UpdateCurrentPageAction | UpdateListAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
   return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
-export function updateUsersAction(users: Array<User>) {
-  return { type: "UPDATE_USERS", users}
+export function updateListAction(list: Array<Item>) {
+  return { type: "UPDATE_LIST", list}
 }
 
 /*

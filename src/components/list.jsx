@@ -8,26 +8,27 @@
  */
 
 /*
- * BOF: src/components/users.jsx
- * This file defines the 'users' component and how it will be rendered.
+ * BOF: src/components/list.jsx
+ * This file defines the 'list' component and how it will be rendered.
  */
 
 // @flow
 
 import * as React from "react";
 
-// Exports Users as a importable function
-export function Users( { users } :
-                       { users: Array<{firstName: string, lastName: string}> }) {
+// Exports List as a importable function
+export function List( { list } :
+                      { list: Array<{name: string, url: string}> }) {
 
-  const content = users.map( (user, index) => {
-    if (user === undefined) {
+  const content = list.map( (item, index) => {
+    if (item === undefined) {
       return '';
     }
 
     return (
       <li key={index}>
-        {`First name: ${user.firstName}, last name: ${user.lastName}`}
+        <p>name: {item.name}</p>
+        <p>url: {item.url}</p>
       </li>
     );
   });
@@ -35,7 +36,7 @@ export function Users( { users } :
   // Return the component structure in HTML
   return(
     <div>
-      <p>List of users</p>
+      <p>List of items</p>
       <ul>
         { content }
       </ul>
@@ -44,5 +45,5 @@ export function Users( { users } :
 }
 
 /*
- * EOF: src/components/users.jsx
+ * EOF: src/components/list.jsx
  */

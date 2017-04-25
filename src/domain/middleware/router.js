@@ -21,15 +21,15 @@ import page from "page";
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import { getUsers, onUsersFromNetwork } from "domain/middleware/network";
+import { getList, onListFromNetwork } from "domain/middleware/network";
 import { updateCurrentPageAction } from "domain/store/actions/main";
 
 const logger = getLogger("Middleware/router");
 
 type OnRoute = (ctx: Object) => void;
 
-function usersRouter(onRoute : OnRoute) {
-  page("/users/", onRoute );
+function listRouter(onRoute : OnRoute) {
+  page("/list/", onRoute );
 }
 
 function defaultRouter(onRoute : OnRoute) {
@@ -38,10 +38,10 @@ function defaultRouter(onRoute : OnRoute) {
 
 export function startRouters() {
 
-  usersRouter((ctx) => {
-    logger.debug("Users route");
-    getUsers().then(onUsersFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: "USERS_PAGE" }));
+  listRouter((ctx) => {
+    logger.debug("List route");
+    getList().then(onListFromNetwork);
+    store.dispatch(updateCurrentPageAction({ name: "LIST_PAGE" }));
   });
 
   defaultRouter((ctx) => {

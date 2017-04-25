@@ -14,19 +14,19 @@
 
 // @flow
 
-export type UsersPage = { name: "USERS_PAGE" };
+export type ListPage = { name: "LIST_PAGE" };
 export type HomePage = { name: "HOME_PAGE" };
-export type Page = UsersPage | HomePage;
-export type User = { firstName: string, lastName: string};
+export type Page = ListPage | HomePage;
+export type Item = { name: string, url: string};
 
 export type State = {
   currentPage: Page,
-  users: Array<User>
+  list: Array<Item>
 };
 
 export const defaultState = {
   currentPage: { name: "HOME_PAGE" },
-  users: []
+  list: []
 };
 
 /*
