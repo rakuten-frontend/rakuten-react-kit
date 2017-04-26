@@ -27,8 +27,7 @@ export function List( { list } :
 
     return (
       <li key={index}>
-        <p>name: {item.name}</p>
-        <p>url: {item.url}</p>
+        <a href={`/detail/${item.name}`}>{item.name}</a>
       </li>
     );
   });

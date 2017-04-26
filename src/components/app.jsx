@@ -19,6 +19,7 @@ import * as React from "react";
 import { List } from "components/list";
 
 import type { State } from "domain/store/state/main";
+import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 // Define App as an importable function
 export function App({ state } :
@@ -28,6 +29,11 @@ export function App({ state } :
   const text = "hello";
   const currentPageName = state.currentPage.name;
   const list = state.list;
+
+  function onChangeText(event: { target: { value: string } }) {
+    const value = event.target.value;
+    onChangeIncrementalSearch(value);
+  }
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
@@ -39,7 +45,14 @@ export function App({ state } :
         return(
           <div>
             <p> Rakuten says {text} </p>
-            <a href="/list">List of items</a>
+            <div>
+              <input
+                type="text"
+                onChange={event => onChangeText(event)}
+                placeholder="Search by name"
+              />
+            </div>
+            <List list={list} />
           </div>
         );
     }
