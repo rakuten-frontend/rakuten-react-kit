@@ -22,7 +22,7 @@ import { fromJS } from 'immutable';
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import { updateListAction, displayDetailAction } from "domain/store/actions/main";
+import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
 
 import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
@@ -66,8 +66,9 @@ export function getDetailByName(name: string) {
 // Make onListFromNetwork a importable function
 export function onListFromNetwork(list : Array<Item>) {
   logger.debug("List from network");
-  // Dispatch an action ...
-  store.dispatch(updateListAction(list));
+  // Dispatch actions ...
+  store.dispatch(updateAllItemsAction(list));
+  store.dispatch(updateFilteredItemsAction(list));
 }
 
 function camelCaseImageFront(detail : DetailItemFromNetwork) {

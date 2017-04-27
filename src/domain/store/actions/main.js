@@ -24,9 +24,14 @@ export type UpdateCurrentPageAction = {
   page: Page
 }
 
-export type UpdateListAction = {
-  type: "UPDATE_LIST",
-  list: Array<Item>
+export type UpdateAllItemsAction = {
+  type: "UPDATE_ALL_ITEMS",
+  allItems: Array<Item>
+}
+
+export type UpdateFilteredItemsAction = {
+  type: "UPDATE_FILTERED_ITEMS",
+  filteredItems: Array<Item>
 }
 
 export type DisplayDetailAction = {
@@ -34,14 +39,18 @@ export type DisplayDetailAction = {
   detail: DetailItem
 }
 
-export type Action = UpdateCurrentPageAction | UpdateListAction;
+export type Action = UpdateCurrentPageAction | UpdateAllItemsAction | UpdateFilteredItemsAction | DisplayDetailAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
   return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
-export function updateListAction(list: Array<Item>) {
-  return { type: "UPDATE_LIST", list }
+export function updateAllItemsAction(allItems: Array<Item>) {
+  return { type: "UPDATE_ALL_ITEMS", allItems }
+}
+
+export function updateFilteredItemsAction(filteredItems: Array<Item>) {
+  return { type: "UPDATE_FILTERED_ITEMS", filteredItems }
 }
 
 export function displayDetailAction(detail: DetailItem) {

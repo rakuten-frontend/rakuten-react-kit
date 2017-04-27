@@ -20,9 +20,14 @@ import type { State, Item } from "domain/store/state/main";
 
 const logger = getLogger("Reduce/list");
 
-export function updateList(state : State, list: Array<Item>) : State {
+export function updateAllItems(state : State, allItems: Array<Item>) : State {
+  logger.debug(`Update list ${allItems.map(item => item.name).toString()}`);
+  return new Map(state).set("allItems", allItems).toJS();
+}
+
+export function updateFilteredItems(state : State, list: Array<Item>) : State {
   logger.debug(`Update list ${list.map(item => item.name).toString()}`);
-  return new Map(state).set("list", list).toJS();
+  return new Map(state).set("filteredItems", list).toJS();
 }
 
 /*

@@ -33,13 +33,15 @@ export type DetailItemFromNetwork = {
 };
 export type State = {
   currentPage: Page,
-  list: Array<Item>,
+  allItems: Array<Item>,
+  filteredItems: Array<Item>,
   detail: DetailItem
 };
 
 export const defaultState = {
   currentPage: { name: "HOME_PAGE" },
-  list: [],
+  allItems: [],
+  filteredItems: [],
   detail: {
     name: "",
     height: 0,

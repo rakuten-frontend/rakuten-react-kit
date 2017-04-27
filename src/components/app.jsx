@@ -30,7 +30,7 @@ export function App({ state } :
   // Select your props from the state
   const text = "hello";
   const currentPageName = state.currentPage.name;
-  const list = state.list;
+  const list = state.filteredItems;
   const detail = state.detail;
 
   function onChangeText(event: { target: { value: string } }) {
