@@ -21,6 +21,8 @@ import type { State } from "domain/store/state/main";
 import type { Action } from "domain/store/actions/main";
 import { updateCurrentPage } from "domain/store/reduce/currentPage";
 import { updateList } from "domain/store/reduce/list";
+import { displayDetail } from "domain/store/reduce/detail";
+import { updateAllItems } from "domain/store/reduce/allItems";
 
 export function reduceApp(state : State = defaultState, action : Action ) : State {
   switch (action.type) {
@@ -29,6 +31,12 @@ export function reduceApp(state : State = defaultState, action : Action ) : Stat
 
     case "UPDATE_LIST":
       return updateList(state, action.list);
+
+    case "DISPLAY_DETAIL":
+      return displayDetail(state, action.detail);
+
+    case "UPDATE_ALL_ITEMS":
+      return updateAllItems(state, action.allItems);
 
     default:
       return state;

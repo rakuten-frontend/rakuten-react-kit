@@ -17,7 +17,7 @@
 
 // @flow
 
-import type { Page, Item } from "domain/store/state/main";
+import type { Page, Item, DetailItem } from "domain/store/state/main";
 
 export type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
@@ -29,14 +29,32 @@ export type UpdateListAction = {
   list: Array<Item>
 }
 
-export type Action = UpdateCurrentPageAction | UpdateListAction;
+export type DisplayDetailAction = {
+  type: "DISPLAY_DETAIL",
+  detail: DetailItem
+}
+
+export type UpdateAllItemsAction = {
+  type: "UPDATE_ALL_ITEMS",
+  allItems: Array<Item>
+}
+
+export type Action = UpdateCurrentPageAction | UpdateListAction | DisplayDetailAction | UpdateAllItemsAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
   return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
 export function updateListAction(list: Array<Item>) {
-  return { type: "UPDATE_LIST", list}
+  return { type: "UPDATE_LIST", list }
+}
+
+export function displayDetailAction(detail: DetailItem) {
+  return { type: "DISPLAY_DETAIL", detail }
+}
+
+export function updateAllItemsAction(allItems: Array<Item>) {
+  return { type: "UPDATE_ALL_ITEMS", allItems }
 }
 
 /*
