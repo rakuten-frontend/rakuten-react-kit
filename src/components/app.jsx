@@ -20,7 +20,8 @@ import { List } from "components/list";
 import { Detail } from "components/detail";
 
 import type { State } from "domain/store/state/main";
-import { onChangeIncrementalSearch, onClickName } from "domain/middleware/user";
+import { detailRoute } from "domain/middleware/router";
+import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 // Define App as an importable function
 export function App({ state } :
@@ -46,7 +47,7 @@ export function App({ state } :
       default:
         return(
           <div>
-            <p> Rakuten says {text} </p>
+            <h1> Rakuten says {text} </h1>
             <div>
               <input
                 type="text"
@@ -57,7 +58,7 @@ export function App({ state } :
             <div>
               <List
                 list={list}
-                onClickName={onClickName}
+                router={detailRoute}
               />
             </div>
           </div>

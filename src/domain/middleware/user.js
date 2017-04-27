@@ -17,19 +17,19 @@
 // @flow
 
 import { getLogger } from "domain/logger";
-
-import { store } from "domain/store/main";
-import type { Item, DetailItem } from "domain/store/state/main";
-import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork, camelCaseImageFront } from "domain/middleware/network";
-import { updateCurrentPageAction } from "domain/store/actions/main";
-
 import {filter, map, every } from 'lodash';
+
+import { store, state } from "domain/store/main";
+import { updateListAction } from "domain/store/actions/main";
+
+import type { Item } from "domain/store/state/main";
 
 const logger = getLogger("Middleware/user");
 
-function filterByName(searchWord: string, allItems: Array<Item>): Array<Item> {
-  if (searchWord.length > 0) {
-    const searchWordsArray = searchWord.replace(/^[\s]+|[\s]+$/g, '').split(/\s/);
+function filterByName(name: string): Array<Item> {
+  const allItems = state().list;
+  if (name.length > 0) {
+    const searchWordsArray = name.replace(/^[\s]+|[\s]+$/g, '').split(/\s/);
     return filter(allItems, item => {
       const results = map(searchWordsArray, word => item.name.search(new RegExp(word, 'i')));
       return every(results, result => result !== -1);
@@ -38,18 +38,9 @@ function filterByName(searchWord: string, allItems: Array<Item>): Array<Item> {
   return allItems;
 }
 
-export function onChangeIncrementalSearch(value: string): void {
-  logger.debug("Incremental Search user");
-  getList().then(list => onListFromNetwork(filterByName(value, list)));
-  store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
-}
-
-export function onClickName(name: string): void {
-  logger.debug("Display Detail user");
-  getDetailByName(name).then(item => {
-    onDetailFromNetwork(camelCaseImageFront(item));
-  });
-  store.dispatch(updateCurrentPageAction({ name: "DETAIL_PAGE" }));
+export function onChangeIncrementalSearch(name: string): void {
+  logger.debug("Incremental Search By Name");
+  store.dispatch(updateListAction(filterByName(name)));
 }
 
 /*
