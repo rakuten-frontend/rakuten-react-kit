@@ -17,7 +17,7 @@
 import render from './renderer'
 import { getLogger } from "domain/logger";
 import { store } from "domain/store/main";
-import { startRouters } from "domain/middleware/router";
+import startRouters from "domain/middleware/router";
 
 // import stylesheets
 require('purecss/build/pure.css');

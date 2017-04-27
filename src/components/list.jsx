@@ -18,13 +18,9 @@ import * as React from "react";
 
 // Exports List as a importable function
 export function List( { list,
-                        onClickName } :
+                        router } :
                       { list: Array<{name: string, url: string}>,
-                        onClickName: ( name: string) => void }) {
-
-  function onClick(name: string) {
-    onClickName(name);
-  }
+                        router: ( name: string ) => string }) {
 
   const content = list.map( (item, index) => {
     if (item === undefined) {
@@ -33,7 +29,7 @@ export function List( { list,
 
     return (
       <li key={index}>
-        <a href={`/detail/${item.name}`} onClick={() => onClick(item.name)}>{item.name}</a>
+        <a href={router(item.name)}>{item.name}</a><br/>
       </li>
     );
   });

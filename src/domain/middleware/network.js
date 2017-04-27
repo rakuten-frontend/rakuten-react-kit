@@ -24,7 +24,7 @@ import { getLogger } from "domain/logger";
 import { store } from "domain/store/main";
 import { updateListAction, displayDetailAction } from "domain/store/actions/main";
 
-import type { Item, DetailItem, DetailItemFromNetwork } from "domain/store/state/main";
+import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
 const logger = getLogger("Middleware/network");
 
@@ -70,13 +70,13 @@ export function onListFromNetwork(list : Array<Item>) {
   store.dispatch(updateListAction(list));
 }
 
-export function onDetailFromNetwork(detail : DetailItem) {
-  logger.debug("Detail from network");
-  store.dispatch(displayDetailAction(detail))
+function camelCaseImageFront(detail : DetailItemFromNetwork) {
+  return fromJS(detail).setIn(['sprites', 'frontDefault'], detail.sprites.front_default).toJS();
 }
 
-export function camelCaseImageFront(detail : DetailItemFromNetwork) {
-  return fromJS(detail).setIn(['sprites', 'frontDefault'], detail.sprites.front_default).toJS();
+export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
+  logger.debug("Detail from network");
+  store.dispatch(displayDetailAction(camelCaseImageFront(detail)))
 }
 
 /*

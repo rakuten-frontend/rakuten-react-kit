@@ -21,35 +21,41 @@ import page from "page";
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import { getList, onListFromNetwork } from "domain/middleware/network";
+import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from "domain/middleware/network";
 import { updateCurrentPageAction } from "domain/store/actions/main";
 
 const logger = getLogger("Middleware/router");
 
 type OnRoute = (ctx: Object) => void;
 
-function listRouter(onRoute : OnRoute) {
-  page("/list/", onRoute );
+function detailRouter(onRoute : OnRoute) {
+  page("/detail/:name", onRoute );
 }
 
 function defaultRouter(onRoute : OnRoute) {
   page("*", onRoute );
 }
 
-export function startRouters() {
+export default function startRouters() {
 
-  listRouter((ctx) => {
-    logger.debug("List route");
-    getList().then(onListFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: "LIST_PAGE" }));
+  detailRouter((ctx) => {
+    logger.debug("Detail route");
+    const name = ctx.params.name;
+    getDetailByName(name).then(onDetailFromNetwork);
+    store.dispatch(updateCurrentPageAction({ name: "DETAIL_PAGE" }));
   });
 
   defaultRouter((ctx) => {
     logger.debug("Default route");
+    getList().then(onListFromNetwork);
     store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
   });
 
   page();
+}
+
+export function detailRoute(name: string) {
+  return `/detail/${name}`;
 }
 
 /*
