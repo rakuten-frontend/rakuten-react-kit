@@ -19,8 +19,8 @@
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import type { Item } from "domain/store/state/main";
-import { getList, onListFromNetwork } from "domain/middleware/network";
+import type { Item, DetailItem } from "domain/store/state/main";
+import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork, camelCaseImageFront } from "domain/middleware/network";
 import { updateCurrentPageAction } from "domain/store/actions/main";
 
 import {filter, map, every } from 'lodash';
@@ -44,6 +44,13 @@ export function onChangeIncrementalSearch(value: string): void {
   store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
 }
 
+export function onClickName(name: string): void {
+  logger.debug("Display Detail user");
+  getDetailByName(name).then(item => {
+    onDetailFromNetwork(camelCaseImageFront(item));
+  });
+  store.dispatch(updateCurrentPageAction({ name: "DETAIL_PAGE" }));
+}
 
 /*
  * EOF: src/domain/middleware/user.js

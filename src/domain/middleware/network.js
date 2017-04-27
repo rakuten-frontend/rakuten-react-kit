@@ -18,15 +18,18 @@
 
 import axios from "axios";
 
+import { fromJS } from 'immutable';
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import type { Item } from "domain/store/state/main";
-import { updateListAction } from "domain/store/actions/main";
+import { updateListAction, displayDetailAction } from "domain/store/actions/main";
+
+import type { Item, DetailItem, DetailItemFromNetwork } from "domain/store/state/main";
 
 const logger = getLogger("Middleware/network");
 
 const URL = 'http://pokeapi.co/api/v2/type/1/';
+const URL_DETAIL = 'http://pokeapi.co/api/v2/pokemon/';
 
 // Make getList a importable function
 export function getList() {
@@ -47,11 +50,33 @@ export function getList() {
       });
 }
 
+export function getDetailByName(name: string) {
+  // Make the network call via ajax using axios
+  return axios.get(`${URL_DETAIL}${name}`)
+      // Whenever it is ready, it will resolve the event and set its result
+      .then(response => {
+        return response.data;
+      })
+       // Or it will throw an error
+      .catch( err => {
+        console.error(err);
+      });
+}
+
 // Make onListFromNetwork a importable function
 export function onListFromNetwork(list : Array<Item>) {
   logger.debug("List from network");
   // Dispatch an action ...
   store.dispatch(updateListAction(list));
+}
+
+export function onDetailFromNetwork(detail : DetailItem) {
+  logger.debug("Detail from network");
+  store.dispatch(displayDetailAction(detail))
+}
+
+export function camelCaseImageFront(detail : DetailItemFromNetwork) {
+  return fromJS(detail).setIn(['sprites', 'frontDefault'], detail.sprites.front_default).toJS();
 }
 
 /*

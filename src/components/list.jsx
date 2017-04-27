@@ -17,8 +17,14 @@
 import * as React from "react";
 
 // Exports List as a importable function
-export function List( { list } :
-                      { list: Array<{name: string, url: string}> }) {
+export function List( { list,
+                        onClickName } :
+                      { list: Array<{name: string, url: string}>,
+                        onClickName: ( name: string) => void }) {
+
+  function onClick(name: string) {
+    onClickName(name);
+  }
 
   const content = list.map( (item, index) => {
     if (item === undefined) {
@@ -27,7 +33,7 @@ export function List( { list } :
 
     return (
       <li key={index}>
-        <a href={`/detail/${item.name}`}>{item.name}</a>
+        <a href={`/detail/${item.name}`} onClick={() => onClick(item.name)}>{item.name}</a>
       </li>
     );
   });
@@ -35,7 +41,7 @@ export function List( { list } :
   // Return the component structure in HTML
   return(
     <div>
-      <p>List of items</p>
+      <h1>List of items</h1>
       <ul>
         { content }
       </ul>
