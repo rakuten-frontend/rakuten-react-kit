@@ -14,19 +14,40 @@
 
 // @flow
 
-export type ListPage = { name: "LIST_PAGE" };
 export type HomePage = { name: "HOME_PAGE" };
-export type Page = ListPage | HomePage;
-export type Item = { name: string, url: string};
-
+export type DetailPage = { name: "DETAIL_PAGE" };
+export type Page = HomePage | DetailPage;
+export type Item = { name: string, url: string };
+export type DetailItem = {
+  name: string,
+  height: number,
+  weight: number,
+  sprites: {
+    frontDefault: string
+  }
+};
+export type DetailItemFromNetwork = {
+  sprites: {
+    front_default: string
+  }
+};
 export type State = {
   currentPage: Page,
-  list: Array<Item>
+  list: Array<Item>,
+  detail: DetailItem
 };
 
 export const defaultState = {
   currentPage: { name: "HOME_PAGE" },
-  list: []
+  list: [],
+  detail: {
+    name: "",
+    height: 0,
+    weight: 0,
+    sprites: {
+      frontDefault: ""
+    }
+  }
 };
 
 /*
