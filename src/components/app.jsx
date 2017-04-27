@@ -17,8 +17,11 @@
 import * as React from "react";
 
 import { List } from "components/list";
+import { Detail } from "components/detail";
 
 import type { State } from "domain/store/state/main";
+import { detailRoute } from "domain/middleware/router";
+import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 // Define App as an importable function
 export function App({ state } :
@@ -28,18 +31,36 @@ export function App({ state } :
   const text = "hello";
   const currentPageName = state.currentPage.name;
   const list = state.list;
+  const detail = state.detail;
+
+  function onChangeText(event: { target: { value: string } }) {
+    const value = event.target.value;
+    onChangeIncrementalSearch(value);
+  }
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
-      case "LIST_PAGE":
-        return <List list={list} />;
+      case "DETAIL_PAGE":
+        return <Detail detail={detail} />;
       default:
         return(
           <div>
-            <p> Rakuten says {text} </p>
-            <a href="/list">List of items</a>
+            <h1> Rakuten says {text} </h1>
+            <div>
+              <input
+                type="text"
+                onChange={event => onChangeText(event)}
+                placeholder="Search by name"
+              />
+            </div>
+            <div>
+              <List
+                list={list}
+                router={detailRoute}
+              />
+            </div>
           </div>
         );
     }

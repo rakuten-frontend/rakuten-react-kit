@@ -17,8 +17,10 @@
 import * as React from "react";
 
 // Exports List as a importable function
-export function List( { list } :
-                      { list: Array<{name: string, url: string}> }) {
+export function List( { list,
+                        router } :
+                      { list: Array<{name: string, url: string}>,
+                        router: ( name: string ) => string }) {
 
   const content = list.map( (item, index) => {
     if (item === undefined) {
@@ -27,8 +29,7 @@ export function List( { list } :
 
     return (
       <li key={index}>
-        <p>name: {item.name}</p>
-        <p>url: {item.url}</p>
+        <a href={router(item.name)}>{item.name}</a><br/>
       </li>
     );
   });
@@ -36,7 +37,7 @@ export function List( { list } :
   // Return the component structure in HTML
   return(
     <div>
-      <p>List of items</p>
+      <h1>List of items</h1>
       <ul>
         { content }
       </ul>
