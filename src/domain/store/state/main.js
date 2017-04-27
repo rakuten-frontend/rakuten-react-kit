@@ -34,7 +34,8 @@ export type DetailItemFromNetwork = {
 export type State = {
   currentPage: Page,
   list: Array<Item>,
-  detail: DetailItem
+  detail: DetailItem,
+  allItems: Array<Item>
 };
 
 export const defaultState = {
@@ -47,7 +48,8 @@ export const defaultState = {
     sprites: {
       frontDefault: ""
     }
-  }
+  },
+  allItems: []
 };
 
 /*

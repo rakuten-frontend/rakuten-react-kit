@@ -22,7 +22,7 @@ import { fromJS } from 'immutable';
 import { getLogger } from "domain/logger";
 
 import { store } from "domain/store/main";
-import { updateListAction, displayDetailAction } from "domain/store/actions/main";
+import { updateListAction, updateAllItemsAction, displayDetailAction } from "domain/store/actions/main";
 
 import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
@@ -68,6 +68,7 @@ export function onListFromNetwork(list : Array<Item>) {
   logger.debug("List from network");
   // Dispatch an action ...
   store.dispatch(updateListAction(list));
+  store.dispatch(updateAllItemsAction(list));
 }
 
 function camelCaseImageFront(detail : DetailItemFromNetwork) {

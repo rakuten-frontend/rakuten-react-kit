@@ -34,7 +34,12 @@ export type DisplayDetailAction = {
   detail: DetailItem
 }
 
-export type Action = UpdateCurrentPageAction | UpdateListAction;
+export type UpdateAllItemsAction = {
+  type: "UPDATE_ALL_ITEMS",
+  allItems: Array<Item>
+}
+
+export type Action = UpdateCurrentPageAction | UpdateListAction | DisplayDetailAction | UpdateAllItemsAction;
 
 export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
   return { type: "UPDATE_CURRENT_PAGE", page };
@@ -46,6 +51,10 @@ export function updateListAction(list: Array<Item>) {
 
 export function displayDetailAction(detail: DetailItem) {
   return { type: "DISPLAY_DETAIL", detail }
+}
+
+export function updateAllItemsAction(allItems: Array<Item>) {
+  return { type: "UPDATE_ALL_ITEMS", allItems }
 }
 
 /*
