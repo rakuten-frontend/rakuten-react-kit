@@ -16,10 +16,14 @@
 
 import * as React from "react";
 
+import { Logo } from "components/rakuten-logo";
+
 // Exports List as a importable function
 export function List( { list,
+                        onChangeText,
                         router } :
                       { list: Array<{name: string, url: string}>,
+                        onChangeText: ( name: string ) => void,
                         router: ( name: string ) => string }) {
 
   const content = list.map( (item, index) => {
@@ -28,19 +32,34 @@ export function List( { list,
     }
 
     return (
-      <li key={index}>
-        <a href={router(item.name)}>{item.name}</a>
-      </li>
+      <a href={router(item.name)}><div className="result" key={index}>{item.name}</div></a>
     );
   });
 
   // Return the component structure in HTML
   return(
-    <div>
-      <h1>List of items</h1>
-      <ul>
-        { content }
-      </ul>
+    <div className="content">
+      <div className="header">
+        <Logo
+          height="100px"
+          width="100px"
+        />
+        <h1>Rakuten React Kit</h1>
+      </div>
+      <div className="search-container">
+        <input
+          type="text"
+          onChange={event => onChangeText(event.target.value)}
+          placeholder="Search by name"
+          className="search-box"
+        />
+      </div>
+      <div className="results-container">
+        <h3>Results({ list.length })</h3>
+        <div >
+          { content }
+        </div>
+      </div>
     </div>
   );
 }

@@ -28,15 +28,9 @@ export function App({ state } :
                     { state: State} ) {
 
   // Select your props from the state
-  const text = "hello";
   const currentPageName = state.currentPage.name;
   const list = state.filteredItems;
   const detail = state.detail;
-
-  function onChangeText(event: { target: { value: string } }) {
-    const value = event.target.value;
-    onChangeIncrementalSearch(value);
-  }
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
@@ -45,27 +39,9 @@ export function App({ state } :
       case "DETAIL_PAGE":
         return <Detail detail={detail} />;
       default:
-        return(
-          <div>
-            <h1> Rakuten says {text} </h1>
-            <div>
-              <input
-                type="text"
-                onChange={event => onChangeText(event)}
-                placeholder="Search by name"
-              />
-            </div>
-            <div>
-              <List
-                list={list}
-                router={detailRoute}
-              />
-            </div>
-          </div>
-        );
+        return <List list={list} onChangeText={onChangeIncrementalSearch} router={detailRoute} />;
     }
   })(currentPageName);
-
 
   // Return the component structure in HTML
   return (
