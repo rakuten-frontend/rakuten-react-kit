@@ -17,34 +17,31 @@
 import * as React from "react";
 
 import { List } from "components/list";
+import { Detail } from "components/detail";
 
 import type { State } from "domain/store/state/main";
+import { detailRoute } from "domain/middleware/router";
+import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 // Define App as an importable function
 export function App({ state } :
                     { state: State} ) {
 
   // Select your props from the state
-  const text = "hello";
   const currentPageName = state.currentPage.name;
-  const list = state.list;
+  const list = state.filteredItems;
+  const detail = state.detail;
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
-      case "LIST_PAGE":
-        return <List list={list} />;
+      case "DETAIL_PAGE":
+        return <Detail detail={detail} />;
       default:
-        return(
-          <div>
-            <p> Rakuten says {text} </p>
-            <a href="/list">List of items</a>
-          </div>
-        );
+        return <List list={list} onChangeText={onChangeIncrementalSearch} router={detailRoute} />;
     }
   })(currentPageName);
-
 
   // Return the component structure in HTML
   return (
