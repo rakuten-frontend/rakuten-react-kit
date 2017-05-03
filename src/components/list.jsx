@@ -32,7 +32,7 @@ export function List( { list,
     }
 
     return (
-      <a href={router(item.name)}><div className="result" key={index}>{item.name}</div></a>
+      <a href={router(item.name)} key={index}><div className="result">{item.name}</div></a>
     );
   });
 
