@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && webpack-dev-server --content-base='build' --hot=true --port 9090 --config='./webpack.config.js'",
+    "start": "npm install && webpack-dev-server --content-base='build' --hot=true --port 9090 --config webpack.config.js",
     "flow-server": "flow server",
     "flow": "flow || true",
-    "build": "npm install && webpack -p --config='./webpack.config.js'"
+    "build": "npm install && webpack -p --config webpack.config.js"
   },
   "author": "Adam Munoz",
   "license": "MIT",
