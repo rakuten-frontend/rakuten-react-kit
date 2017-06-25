@@ -32,8 +32,8 @@ function detailRouter(onRoute : OnRoute) {
   page("/detail/:name", onRoute );
 }
 
-function defaultRouter(onRoute : OnRoute) {
-  page("*", onRoute );
+function homeRouter(onRoute : OnRoute) {
+  page("", onRoute );
 }
 
 export default function startRouters() {
@@ -45,8 +45,8 @@ export default function startRouters() {
     store.dispatch(updateCurrentPageAction({ name: "DETAIL_PAGE" }));
   });
 
-  defaultRouter((ctx) => {
-    logger.debug("Default route");
+  homeRouter((ctx) => {
+    logger.debug("Home route");
     getList().then(onListFromNetwork);
     store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
   });

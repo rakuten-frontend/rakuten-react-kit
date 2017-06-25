@@ -36,10 +36,12 @@ export function App({ state } :
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
-      case "DETAIL_PAGE":
+      case 'DETAIL_PAGE':
         return <Detail detail={detail} />;
-      default:
+      case 'HOME_PAGE':
         return <List list={list} onChangeText={onChangeIncrementalSearch} router={detailRoute} />;
+      default:
+        return <p>Page not found</p>;
     }
   })(currentPageName);
 
