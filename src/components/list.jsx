@@ -21,10 +21,10 @@ import { Logo } from "components/rakuten-logo";
 // Exports List as a importable function
 export function List( { list,
                         onChangeText,
-                        router } :
+                        detailRoute } :
                       { list: Array<{name: string, url: string}>,
                         onChangeText: ( name: string ) => void,
-                        router: ( name: string ) => string }) {
+                        detailRoute: ( name: string ) => string }) {
 
   const content = list.map( (item, index) => {
     if (item === undefined) {
@@ -32,7 +32,7 @@ export function List( { list,
     }
 
     return (
-      <a href={router(item.name)} key={index}><div className="result">{item.name}</div></a>
+      <a href={detailRoute(item.name)} key={index}><div className="result">{item.name}</div></a>
     );
   });
 

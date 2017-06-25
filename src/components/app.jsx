@@ -27,19 +27,20 @@ import { onChangeIncrementalSearch } from "domain/middleware/user";
 export function App({ state } :
                     { state: State} ) {
 
-  // Select your props from the state
   const currentPageName = state.currentPage.name;
-  const list = state.filteredItems;
-  const detail = state.detail;
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
-      case "DETAIL_PAGE":
+      case 'HOME_PAGE':
+        const list = state.filteredItems;
+        return <List list={list} onChangeText={onChangeIncrementalSearch} detailRoute={detailRoute} />;
+      case 'DETAIL_PAGE':
+        const detail = state.detail;
         return <Detail detail={detail} />;
       default:
-        return <List list={list} onChangeText={onChangeIncrementalSearch} router={detailRoute} />;
+        return <p>Page not found</p>;
     }
   })(currentPageName);
 
