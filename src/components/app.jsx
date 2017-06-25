@@ -35,7 +35,7 @@ export function App({ state } :
     switch (pageName) {
       case 'HOME_PAGE':
         const list = state.filteredItems;
-        return <List list={list} onChangeText={onChangeIncrementalSearch} router={detailRoute} />;
+        return <List list={list} onChangeText={onChangeIncrementalSearch} detailRoute={detailRoute} />;
       case 'DETAIL_PAGE':
         const detail = state.detail;
         return <Detail detail={detail} />;
