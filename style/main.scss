@@ -7,65 +7,76 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+$font-family: Asap, sans-serif;
+
 html {
   height: 100%;
 }
 
 body {
   height: 100%;
-  font-family: 'Asap', sans-serif;
+  font-family: $font-family;
   color: #333;
 }
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-  color: #999;
+
+a {
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    text-decoration: none;
+    color: #999;
+  }
 }
+
 .content {
   height: 100%;
   width: 100%;
 }
+
 .header {
   margin: 40px auto;
   height: 150px;
   width: 60%;
   text-align: center;
+
+  &:h1 {
+    margin-top: 10px;
+  }
 }
-.header h1 {
-  margin-top: 10px;
-}
-.link-back {
-  text-align: left;
-}
+
 .search-container {
   width: 60%;
   margin: 20px auto;
   border-top: 1px solid #999;
   text-align: center;
 }
+
 .detail-info-container {
   width: 60%;
   margin: auto;
   border-top: 1px solid #999;
 }
+
 .detail-info {
   width: 500px;
   margin: auto;
   text-align: center;
   padding-top: 60px;
+
+  ul {
+    padding: 0;
+    text-align: left;
+  }
+
+  li {
+    list-style: none;
+    padding: 15px 0;
+    border-bottom: 1px solid #999;
+    color: #666;
+  }
 }
-.detail-info ul {
-  padding: 0;
-  text-align: left;
-}
-.detail-info li {
-  list-style: none;
-  padding: 15px 0;
-  border-bottom: 1px solid #999;
-  color: #666;
-}
+
 .search-box {
   border: solid #222 2px;
   border-radius: 5px;
@@ -73,40 +84,48 @@ a:active {
   color: #222;
   cursor: pointer;
   display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 30px;
-  margin-bottom: 14px;
-  margin-right: .5rem;
-  outline: none;
+  font: 600 14px/1 $font-family;
+  margin: 30px 0.5rem 14px auto;
   padding: 6px 12px;
   text-align: left;
+
+  &:focus {
+    outline: 0;
+  }
 }
+
 .results-container {
-  padding: 0 !important;
-}
-.result {
-  display: block;
-  padding: 15px 4px;
-}
-.result:hover {
-  background-color: #eee;
-}
-.results-container .result {
-  border-top: 1px solid #999;
-}
-.results-container {
+  padding: 0;
   display: block;
   margin: auto;
   width: 600px;
+
+  h3 {
+    margin-top: 0;
+    color: #bf0000;
+  }
+
+  .result {
+    border-top: 1px solid #999;
+  }
 }
-.results-container h3 {
-  margin-top: 0;
+
+.result {
+  display: block;
+  padding: 15px 4px;
+
+  &:hover {
+    background-color: #eee;
+  }
 }
-.results-container h3,
-.link-back a:link,
-.link-back a:visited,
-.link-back a:hover,
-.link-back a:active {
-  color: #bf0000 !important;
+
+.link-back {
+  text-align: left;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #bf0000;
+  }
 }
