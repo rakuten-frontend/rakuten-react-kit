@@ -28,8 +28,8 @@ import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
 const logger = getLogger("Middleware/network");
 
-const URL = 'http://pokeapi.co/api/v2/type/1/';
-const URL_DETAIL = 'http://pokeapi.co/api/v2/pokemon/';
+const URL = 'https://pokeapi.co/api/v2/type/1/';
+const URL_DETAIL = 'https://pokeapi.co/api/v2/pokemon/';
 
 export function getList() {
   logger.debug('Requesting list from network');
