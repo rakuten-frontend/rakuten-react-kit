@@ -14,8 +14,8 @@
 
 // @flow
 
-export type HomePage = { name: "HOME_PAGE" };
-export type DetailPage = { name: "DETAIL_PAGE" };
+type HomePage = { name: "HOME_PAGE" };
+type DetailPage = { name: "DETAIL_PAGE" };
 export type Page = HomePage | DetailPage;
 export type Item = { name: string, url: string };
 export type DetailItem = {
