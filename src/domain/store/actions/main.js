@@ -19,22 +19,22 @@
 
 import type { Page, Item, DetailItem } from "domain/store/state/main";
 
-export type UpdateCurrentPageAction = {
+type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
   page: Page
 }
 
-export type UpdateAllItemsAction = {
+type UpdateAllItemsAction = {
   type: "UPDATE_ALL_ITEMS",
   allItems: Array<Item>
 }
 
-export type UpdateFilteredItemsAction = {
+type UpdateFilteredItemsAction = {
   type: "UPDATE_FILTERED_ITEMS",
   filteredItems: Array<Item>
 }
 
-export type DisplayDetailAction = {
+type DisplayDetailAction = {
   type: "DISPLAY_DETAIL",
   detail: DetailItem
 }
