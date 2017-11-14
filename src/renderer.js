@@ -25,19 +25,22 @@ const logger = getLogger("Renderer");
 // This function is responsible for rendering the application
 export default function render() : void {
 
-  // Log the rendering start time
-  logger.time("DOM Render");
-
   const App = require('components/app').App;
+  const root = document.getElementById("app");
 
   // Pass all props to the App component, and render to the target DOM element.
-  ReactDOM.render(
-    <App state={state()} />,
-    document.getElementById("app")
-  );
+  if (root !== null) {
+    // Log the rendering start time
+    logger.time("DOM Render");
+  
+    ReactDOM.render(
+      <App state={state()} />,
+      root
+    );  
 
-  // Log the rendering end time
-  logger.timeEnd("DOM Rendered");
+    // Log the rendering end time
+    logger.timeEnd("DOM Rendered");
+  }
 
 }
 
