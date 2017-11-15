@@ -7,50 +7,39 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/middleware/network.js
- *
- * This file represents the 'network actor' in your application.
- * It contains handlers which dispatch all actions as a result of network events.
- */
-
-// @flow
-
-import axios from "axios";
-
 import { fromJS } from 'immutable';
-import { getLogger } from "domain/logger";
 
+import { getLogger } from "domain/logger";
 import { store } from "domain/store/main";
 import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
+import { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
-import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
+type Pokemon = { pokemon: { name: string, url: string }};
 
 const logger = getLogger("Middleware/network");
-
 const URL = 'https://pokeapi.co/api/v2/type/1/';
 const URL_DETAIL = 'https://pokeapi.co/api/v2/pokemon/';
 
-export function getList() {
-  logger.debug('Requesting list from network');
-  return axios.get(URL)
-       .then(response => {
-         return response.data.pokemon.map(obj => {
-           return {
-             name: obj.pokemon.name,
-             url: obj.pokemon.url
-           };
-         });
-       })
-      .catch(logger.error);
+export async function getList() {
+  logger.debug('Requesting list from network', '- list -');
+  const resp = await fetch(URL);
+  if (resp.ok) {
+    const data: Pokemon[] = await resp.json();
+    return data.map(e => (
+      {
+        name: e.pokemon.name,
+        url: e.pokemon.url
+      }))}
+  else throw new TypeError("getList response is not Ok");
 }
 
-export function getDetailByName(name: string) {
-  return axios.get(`${URL_DETAIL}${name}`)
-      .then(response => {
-        return response.data;
-      })
-      .catch(logger.error)
+export async function getDetailByName(name: string) {
+  logger.debug('Requesting from network','- element -', name);
+  const resp = await fetch(`${URL_DETAIL}${name}`);
+  if (resp.ok) {
+    return resp.json()
+  }
+  else throw new TypeError("getDetailByName response is not Ok");
 }
 
 export function onListFromNetwork(list : Array<Item>) {
@@ -67,7 +56,3 @@ export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
   logger.debug("Detail from network");
   store.dispatch(displayDetailAction(camelCaseImageFront(detail)))
 }
-
-/*
- * EOF: src/domain/middleware/network.js
- */

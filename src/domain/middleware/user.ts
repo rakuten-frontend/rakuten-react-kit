@@ -7,22 +7,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/middleware/user.js
- *
- * This file represents the 'user actor' in your application.
- * It contains handlers which dispatch all actions as a result of user events.
- */
-
-// @flow
-
 import { getLogger } from "domain/logger";
 import {filter, map, every } from 'lodash';
-
 import { store, state } from "domain/store/main";
 import { updateFilteredItemsAction } from "domain/store/actions/main";
-
-import type { Item } from "domain/store/state/main";
+import { Item } from "domain/store/state/main";
 
 const logger = getLogger("Middleware/user");
 
@@ -42,7 +31,3 @@ export function onChangeIncrementalSearch(name: string): void {
   logger.debug("Incremental Search By Name");
   store.dispatch(updateFilteredItemsAction(filterByName(name)));
 }
-
-/*
- * EOF: src/domain/middleware/user.js
- */

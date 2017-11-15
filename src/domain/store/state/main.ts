@@ -7,17 +7,12 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/store/state/main.js
- * This file is contains our application state and type definitions.
- */
-
-// @flow
-
 export type HomePage = { name: "HOME_PAGE" };
 export type DetailPage = { name: "DETAIL_PAGE" };
 export type Page = HomePage | DetailPage;
+
 export type Item = { name: string, url: string };
+
 export type DetailItem = {
   name: string,
   height: number,
@@ -38,7 +33,7 @@ export type State = {
   detail: DetailItem
 };
 
-export const defaultState = {
+export const defaultState : State = {
   currentPage: { name: "HOME_PAGE" },
   allItems: [],
   filteredItems: [],
@@ -51,7 +46,3 @@ export const defaultState = {
     }
   }
 };
-
-/*
- * EOF: src/domain/store/state/main.js
- */

@@ -18,7 +18,7 @@ import * as React from "react";
 
 import { Logo } from "components/rakuten-logo";
 
-import type { DetailItem } from "domain/store/state/main";
+import { DetailItem } from "domain/store/state/main";
 
 // Exports List as a importable function
 export function Detail( { detail } :
@@ -50,7 +50,3 @@ export function Detail( { detail } :
     </div>
   );
 }
-
-/*
- * EOF: src/components/detail.jsx
- */

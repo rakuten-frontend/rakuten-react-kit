@@ -7,13 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/components/rakuten-logo.jsx
- * This file defines the 'rakuten-logo' component and how it will be rendered.
- */
-
-// @flow
-
 import React from 'react'
 
 export function Logo ({ height,
@@ -29,7 +22,3 @@ export function Logo ({ height,
     </svg>
   );
 }
-
-/*
- * EOF: src/components/rakuten-logo.jsx
- */

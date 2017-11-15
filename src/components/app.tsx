@@ -15,21 +15,17 @@
 // @flow
 
 import * as React from "react";
+import { State } from "domain/store/state/main";
 
 import { List } from "components/list";
 import { Detail } from "components/detail";
-
-import type { State } from "domain/store/state/main";
 import { detailRoute } from "domain/middleware/router";
 import { onChangeIncrementalSearch } from "domain/middleware/user";
 
-// Define App as an importable function
-export function App({ state } :
-                    { state: State} ) {
+export function App({ state } : { state: State} ) {
 
   const currentPageName = state.currentPage.name;
-
-  // Define a 'content' variable which outputs content
+// Define a 'content' variable which outputs content
   // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
@@ -51,7 +47,3 @@ export function App({ state } :
     </div>
   );
 }
-
-/*
- * EOF: src/components/app.jsx
- */

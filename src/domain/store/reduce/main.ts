@@ -7,18 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/store/reduce/main.js
- *
- * This file is the 'index' of application store reducers. It is responsible
- * for updating the current store state according to actions types.
- */
-
-// @flow
-
-import { defaultState } from "domain/store/state/main";
-import type { State } from "domain/store/state/main";
-import type { Action } from "domain/store/actions/main";
+import { defaultState, State } from "domain/store/state/main";
+import { Action } from "domain/store/actions/main";
 import { updateCurrentPage } from "domain/store/reduce/currentPage";
 import { updateAllItems, updateFilteredItems } from "domain/store/reduce/list";
 import { displayDetail } from "domain/store/reduce/detail";
@@ -41,7 +31,3 @@ export function reduceApp(state : State = defaultState, action : Action ) : Stat
       return state;
   }
 }
-
-/*
- * EOF: src/domain/store/reduce/main.js
- */

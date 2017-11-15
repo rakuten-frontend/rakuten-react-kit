@@ -7,13 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/components/list.jsx
- * This file defines the 'list' component and how it will be rendered.
- */
-
-// @flow
-
 import * as React from "react";
 
 import { Logo } from "components/rakuten-logo";
@@ -63,7 +56,3 @@ export function List( { list,
     </div>
   );
 }
-
-/*
- * EOF: src/components/list.jsx
- */

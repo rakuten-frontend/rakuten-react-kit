@@ -7,26 +7,17 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/middleware/router.js
- *
- * This file represents the 'router actor' in your application.
- * It contains handlers which dispatch all actions as a result of url routing events.
- */
-
-// @flow
-
 import page from "page";
 
 import { getLogger } from "domain/logger";
-
 import { store } from "domain/store/main";
 import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from "domain/middleware/network";
 import { updateCurrentPageAction } from "domain/store/actions/main";
 
-const logger = getLogger("Middleware/router");
+type Context = { params: { name: string } };
+type OnRoute = (ctx: Context) => void;
 
-type OnRoute = (ctx: Object) => void;
+const logger = getLogger("Middleware/router");
 
 function detailRouter(onRoute : OnRoute) {
   page("/detail/:name", onRoute );
@@ -35,10 +26,9 @@ function detailRouter(onRoute : OnRoute) {
 function homeRouter(onRoute : OnRoute) {
   page("", onRoute );
 }
-
 export default function startRouters() {
 
-  detailRouter((ctx) => {
+  detailRouter((ctx: Context) => {
     logger.debug("Detail route");
     const name = ctx.params.name;
     getDetailByName(name).then(onDetailFromNetwork);
@@ -57,7 +47,3 @@ export default function startRouters() {
 export function detailRoute(name: string) {
   return `/detail/${name}`;
 }
-
-/*
- * EOF: src/domain/middleware/router.js
- */

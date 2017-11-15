@@ -7,17 +7,7 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/store/actions/main.js
- *
- * This file defines the actions for your application. It can be broken down
- * into many different files depending on the size of your application. If you
- * do, keep naming consistent and use this file as an index.
- */
-
-// @flow
-
-import type { Page, Item, DetailItem } from "domain/store/state/main";
+import { Page, Item, DetailItem } from "domain/store/state/main";
 
 export type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
@@ -56,7 +46,3 @@ export function updateFilteredItemsAction(filteredItems: Array<Item>) {
 export function displayDetailAction(detail: DetailItem) {
   return { type: "DISPLAY_DETAIL", detail }
 }
-
-/*
- * EOF: src/domain/store/actions/main.js
- */
