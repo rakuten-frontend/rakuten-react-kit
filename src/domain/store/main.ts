@@ -12,7 +12,6 @@ import { reduceApp } from "domain/store/reduce/main";
 
 import { State } from "domain/store/state/main";
 
-// Create the store and make it an importable constant
 export const store = createStore(reduceApp);
 
 // We use this wrapper function so that we can have type checking
