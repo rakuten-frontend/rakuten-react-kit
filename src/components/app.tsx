@@ -25,8 +25,6 @@ import { onChangeIncrementalSearch } from "domain/middleware/user";
 export function App({ state } : { state: State} ) {
 
   const currentPageName = state.currentPage.name;
-// Define a 'content' variable which outputs content
-  // according to the page routed to.
   const content = ((pageName) => {
     switch (pageName) {
       case 'HOME_PAGE':
@@ -40,7 +38,6 @@ export function App({ state } : { state: State} ) {
     }
   })(currentPageName);
 
-  // Return the component structure in HTML
   return (
     <div>
       { content }
