@@ -5,11 +5,19 @@
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": ""
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server --content-base build"
   },
   "author": "Adam Munoz",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.4.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1",
+    "webpack-dashboard": "^1.0.2",
+    "webpack-dev-server": "^2.9.4"
+  },
   "dependencies": {
     "empty": "^0.10.1",
     "immutable": "^3.8.1",
