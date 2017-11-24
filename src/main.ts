@@ -7,6 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+require('style/main');
+
 import { getLogger } from "domain/logger";
 import { store } from "domain/store/main";
 import startRouters from "domain/middleware/router";
