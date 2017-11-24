@@ -14,7 +14,7 @@ import { store } from "domain/store/main";
 import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
 import { Item, DetailItemFromNetwork } from "domain/store/state/main";
 
-type Pokemon = { pokemon: { name: string, url: string }};
+type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
 const logger = getLogger("Middleware/network");
 const URL = 'https://pokeapi.co/api/v2/type/1/';
@@ -24,8 +24,8 @@ export async function getList() {
   logger.debug('Requesting list from network', '- list -');
   const resp = await fetch(URL);
   if (resp.ok) {
-    const data: Pokemon[] = await resp.json();
-    return data.map(e => (
+    const data: Pokemon = await resp.json();
+    return data.pokemon.map(e => (
       {
         name: e.pokemon.name,
         url: e.pokemon.url

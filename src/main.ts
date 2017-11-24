@@ -14,4 +14,9 @@ import { store } from "domain/store/main";
 import startRouters from "domain/middleware/router";
 import render from 'renderer';
 
-render();
+const logger = getLogger('main');
+
+logger.debug('Subscribing to store');
+store.subscribe(render);
+logger.debug('Start routers');
+startRouters();
