@@ -23,9 +23,8 @@ import { detailRoute } from "domain/middleware/router";
 import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 export function App({ state } : { state: State} ) {
-
   const currentPageName = state.currentPage.name;
-  const content = ((pageName) => {
+  const content = (pageName => {
     switch (pageName) {
       case 'HOME_PAGE':
         const list = state.filteredItems;
