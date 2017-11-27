@@ -19,22 +19,22 @@
 
 import type { Page, Item, DetailItem } from "domain/store/state/main";
 
-export type UpdateCurrentPageAction = {
+type UpdateCurrentPageAction = {
   type: "UPDATE_CURRENT_PAGE",
   page: Page
 }
 
-export type UpdateAllItemsAction = {
+type UpdateAllItemsAction = {
   type: "UPDATE_ALL_ITEMS",
   allItems: Array<Item>
 }
 
-export type UpdateFilteredItemsAction = {
+type UpdateFilteredItemsAction = {
   type: "UPDATE_FILTERED_ITEMS",
   filteredItems: Array<Item>
 }
 
-export type DisplayDetailAction = {
+type DisplayDetailAction = {
   type: "DISPLAY_DETAIL",
   detail: DetailItem
 }
@@ -45,15 +45,15 @@ export function updateCurrentPageAction(page: Page) : UpdateCurrentPageAction {
   return { type: "UPDATE_CURRENT_PAGE", page };
 }
 
-export function updateAllItemsAction(allItems: Array<Item>) {
+export function updateAllItemsAction(allItems: Array<Item>) : UpdateAllItemsAction {
   return { type: "UPDATE_ALL_ITEMS", allItems }
 }
 
-export function updateFilteredItemsAction(filteredItems: Array<Item>) {
+export function updateFilteredItemsAction(filteredItems: Array<Item>) : UpdateFilteredItemsAction {
   return { type: "UPDATE_FILTERED_ITEMS", filteredItems }
 }
 
-export function displayDetailAction(detail: DetailItem) {
+export function displayDetailAction(detail: DetailItem) : DisplayDetailAction {
   return { type: "DISPLAY_DETAIL", detail }
 }
 
