@@ -7,7 +7,6 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { fromJS } from 'immutable';
 import { getLogger } from "domain/logger";
 import { State, DetailItem } from "domain/store/state/main";
 
@@ -15,5 +14,5 @@ const logger = getLogger("Reduce/detail");
 
 export function displayDetail(state : State, detail: DetailItem) : State {
   logger.debug(`Display detail ${ detail.name }`);
-  return fromJS(state).set('detail', detail).toJS();
+  return {...state, detail};
 }

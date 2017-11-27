@@ -12,7 +12,6 @@
  * This file is responsible for updating 'currentPage' in our state.
  */
 
-import { Map } from "immutable";
 import { getLogger } from "domain/logger";
 import { State, Page } from "domain/store/state/main";
 
@@ -20,5 +19,5 @@ const logger = getLogger("Reduce/currentPage");
 
 export function updateCurrentPage( state : State, page: Page ) : State {
   logger.debug(`Update current page ${page.name}`);
-  return Map(state).set("currentPage", page).toJS();
+  return {...state, currentPage: page};
 }
