@@ -2,6 +2,10 @@
 
 Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
 
+## Version 2 notice
+
+Check the progress on the new version [here](https://github.com/rakuten-frontend/rakuten-react-kit/tree/feature/v2)
+
 ## Structure
 ```
 /
