@@ -7,6 +7,7 @@
 .*/node_modules/config-chain/.*
 .*/node_modules/fbjs/.*
 .*/node_modules/npmconf/.*
+.*/node_modules/immutable/dist/immutable.js.flow
 
 [include]
 

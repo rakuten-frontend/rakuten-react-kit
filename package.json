@@ -22,7 +22,7 @@
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.0",
-    "flow-bin": "^0.39.0",
+    "flow-bin": "^0.59.0",
     "node-sass": "^4.5.0",
     "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.2",
