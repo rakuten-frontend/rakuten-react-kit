@@ -7,12 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { fromJS } from 'immutable';
-
 import { getLogger } from "domain/logger";
 import { store } from "domain/store/main";
 import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
-import { Item, DetailItemFromNetwork } from "domain/store/state/main";
+import { Item, DetailItemFromNetwork, DetailItem } from "domain/store/state/main";
 
 type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
@@ -48,8 +46,13 @@ export function onListFromNetwork(list : Array<Item>) {
   store.dispatch(updateFilteredItemsAction(list));
 }
 
-function camelCaseImageFront(detail : DetailItemFromNetwork) {
-  return fromJS(detail).setIn(['sprites', 'frontDefault'], detail.sprites.front_default).toJS();
+function camelCaseImageFront(detail : DetailItemFromNetwork): DetailItem {
+  return { 
+    ...detail,
+    sprites: {
+      frontDefault: detail.sprites.front_default
+    }
+  };
 }
 
 export function onDetailFromNetwork(detail : DetailItemFromNetwork) {

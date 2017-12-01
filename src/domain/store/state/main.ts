@@ -22,10 +22,14 @@ export type DetailItem = {
   }
 };
 export type DetailItemFromNetwork = {
+  name: string,
+  height: number,
+  weight: number,
   sprites: {
     front_default: string
   }
 };
+
 export type State = {
   currentPage: Page,
   allItems: Array<Item>,
