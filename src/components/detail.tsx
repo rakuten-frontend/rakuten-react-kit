@@ -12,25 +12,14 @@
  * This file defines the 'detail' component and how it will be rendered.
  */
 
-// @flow
-
 import * as React from "react";
-import Fairybread from 'fairybread';
 import { Logo } from "components/rakuten-logo";
 import { DetailItem } from "domain/store/state/main";
-
-const sheet = new Fairybread();
-sheet.add('.link-back', 'text-align: left' );
-sheet.add(`.link-back:link, 
-           .link-back:visited,
-           .link-back:hover, 
-           .link-back:active`, 'color: #bf0000');
 
 // Exports List as a importable function
 export function Detail( { detail } :
                         { detail: DetailItem }) {
 
-  // Return the component structure in HTML
   return(
     <div className="content">
       <div className="header">

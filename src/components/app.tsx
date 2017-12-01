@@ -16,13 +16,22 @@
 
 import * as React from "react";
 import { State } from "domain/store/state/main";
-
+import Fairybread from 'fairybread';
 import { List } from "components/list";
 import { Detail } from "components/detail";
 import { detailRoute } from "domain/middleware/router";
 import { onChangeIncrementalSearch } from "domain/middleware/user";
 
 export function App({ state } : { state: State} ) {
+
+  const sheet = new Fairybread('global');
+  sheet.add('html', 'height:100%');
+  sheet.add('body', `
+    height: 100%;
+    font-family: Asap`);
+  sheet.add('.content', 'width: 100%;');
+  sheet.addSpecial(`@import url('https://fonts.googleapis.com/css?family=Asap');`);
+
   const currentPageName = state.currentPage.name;
   const content = (pageName => {
     switch (pageName) {
@@ -39,6 +48,7 @@ export function App({ state } : { state: State} ) {
 
   return (
     <div>
+      <style>{sheet.render('raw').css}</style>
       { content }
     </div>
   );

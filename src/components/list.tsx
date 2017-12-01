@@ -12,58 +12,6 @@ import Fairybread from 'fairybread';
 
 import { Logo } from "components/rakuten-logo";
 
-const sheet = new Fairybread();
-
-sheet.add('a, a:link, a:visited, a:hover, a:active ', `
-    text-decoration: none;
-    color: #999;`);
-
-sheet.add('.header', `
-  margin: 40px auto;
-  height: 150px;
-  width: 60%;
-  text-align: center;`);
-
-sheet.add('.header h1', `
-  margin-top: 10px;`);
-
-sheet.add('.search-container', `
-  width: 60%;
-  margin: 20px auto;
-  border-top: 1px solid #999;
-  text-align: center;`);
-
-sheet.add('.search-box', `
-  border: solid #222 2px;
-  border-radius: 5px;
-  box-shadow: 4px 4px 0 #222;
-  color: #222;
-  cursor: pointer;
-  display: inline-block;
-  font: 600 14px/1 $font-family;
-  margin: 30px 0.5rem 14px auto;
-  padding: 6px 12px;
-  text-align: left;`);
-
-sheet.add('.search-box:focus', 'outline: 0;');
-
-sheet.add('.results-container', `
-  padding: 0;
-  display: block;
-  margin: auto;
-  width: 600px;`);
-
-sheet.add('.results-container h3', `
-  margin-top: 0;
-  color: #bf0000;`);
-
-sheet.add('.result', `
-  display: block;
-  padding: 15px 4px;
-  border-top: 1px solid #999`);
-
-sheet.add('.result:hover', `
-  background-color: #eee;`);
 
 // Exports List as a importable function
 export function List( { list,
@@ -72,6 +20,59 @@ export function List( { list,
                         onChangeText: ( name: string ) => void,
                         detailRoute: ( name: string ) => string }) {
 
+  const sheet = new Fairybread();
+
+  sheet.add('a, a:link, a:visited, a:hover, a:active ', `
+      text-decoration: none;
+      color: #999;`);
+
+  sheet.add('.header', `
+    margin: 40px auto;
+    height: 150px;
+    width: 60%;
+    text-align: center;`);
+
+  sheet.add('.header h1', `
+    margin-top: 10px;`);
+
+  sheet.add('.search-container', `
+    width: 60%;
+    margin: 20px auto;
+    border-top: 1px solid #999;
+    text-align: center;`);
+
+  sheet.add('.search-box', `
+    border: solid #222 2px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0 #222;
+    color: #222;
+    cursor: pointer;
+    display: inline-block;
+    font: 600 14px/1 $font-family;
+    margin: 30px 0.5rem 14px auto;
+    padding: 6px 12px;
+    text-align: left;`);
+
+  sheet.add('.search-box:focus', 'outline: 0;');
+
+  sheet.add('.results-container', `
+    padding: 0;
+    display: block;
+    margin: auto;
+    width: 600px;`);
+
+  sheet.add('.results-container h3', `
+    margin-top: 0;
+    color: #bf0000;`);
+
+  sheet.add('.result', `
+    display: block;
+    padding: 15px 4px;
+    border-top: 1px solid #999`);
+
+  sheet.add('.result:hover', `
+    background-color: #eee;`);
+
   const content = list.map((item, index) =>
     item === undefined ? '' :
       <a href={detailRoute(item.name)} key={index}>
@@ -79,9 +80,11 @@ export function List( { list,
         </div>
       </a>);
 
-  sheet.render();
   return(
     <div className={sheet.id}>
+
+      <style>{sheet.render('raw').css}</style>
+
       <div className="header">
         <Logo
           height="100px"
