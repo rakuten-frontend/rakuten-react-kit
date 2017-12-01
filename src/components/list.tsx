@@ -41,10 +41,11 @@ export function List( { list,
     border-top: 1px solid #999;
     text-align: center;`);
 
+  const shadowColor = `#2${new Date().getSeconds()}2`
   sheet.add('.search-box', `
-    border: solid #222 2px;
+    border: solid ${shadowColor} 2px;
     border-radius: 5px;
-    box-shadow: 4px 4px 0 #222;
+    box-shadow: 4px 4px 0 ${shadowColor};
     color: #222;
     cursor: pointer;
     display: inline-block;
