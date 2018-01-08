@@ -8,7 +8,8 @@
     "start": "npm install && webpack-dev-server --content-base build --hot=true --port 9090 --config webpack.config.js",
     "flow-server": "flow server",
     "flow": "flow || true",
-    "build": "npm install && webpack -p --config webpack.config.js"
+    "build": "npm install && webpack -p --config webpack.config.js",
+    "sass-lint": "sass-lint -v"
   },
   "author": "Adam Munoz",
   "license": "MIT",
@@ -23,6 +24,7 @@
     "file-loader": "^0.10.0",
     "flow-bin": "^0.39.0",
     "node-sass": "^4.5.0",
+    "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",

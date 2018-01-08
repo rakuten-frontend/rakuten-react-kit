@@ -20,7 +20,7 @@ import { store } from "domain/store/main";
 import startRouters from "domain/middleware/router";
 
 // import stylesheets
-require('../style/main.css');
+require('../style/main.scss');
 
 // Make logger available
 const logger = getLogger("Main");
