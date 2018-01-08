@@ -16,25 +16,25 @@
 
 // @flow
 
-import { defaultState } from "domain/store/state/main";
-import type { State } from "domain/store/state/main";
-import type { Action } from "domain/store/actions/main";
-import { updateCurrentPage } from "domain/store/reduce/currentPage";
-import { updateAllItems, updateFilteredItems } from "domain/store/reduce/list";
-import { displayDetail } from "domain/store/reduce/detail";
+import { defaultState } from 'domain/store/state/main';
+import type { State } from 'domain/store/state/main';
+import type { Action } from 'domain/store/actions/main';
+import { updateCurrentPage } from 'domain/store/reduce/currentPage';
+import { updateAllItems, updateFilteredItems } from 'domain/store/reduce/list';
+import { displayDetail } from 'domain/store/reduce/detail';
 
-export function reduceApp(state : State = defaultState, action : Action ) : State {
+export function reduceApp(state: State = defaultState, action: Action): State {
   switch (action.type) {
-    case "UPDATE_CURRENT_PAGE":
+    case 'UPDATE_CURRENT_PAGE':
       return updateCurrentPage(state, action.page);
 
-    case "UPDATE_ALL_ITEMS":
+    case 'UPDATE_ALL_ITEMS':
       return updateAllItems(state, action.allItems);
 
-    case "UPDATE_FILTERED_ITEMS":
+    case 'UPDATE_FILTERED_ITEMS':
       return updateFilteredItems(state, action.filteredItems);
 
-    case "DISPLAY_DETAIL":
+    case 'DISPLAY_DETAIL':
       return displayDetail(state, action.detail);
 
     default:

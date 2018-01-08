@@ -14,36 +14,37 @@
 
 // @flow
 
-import * as React from "react";
+import * as React from 'react';
 
-import { Logo } from "components/rakuten-logo";
+import { Logo } from 'components/rakuten-logo';
 
 // Exports List as a importable function
-export function List( { list,
-                        onChangeText,
-                        detailRoute } :
-                      { list: Array<{name: string, url: string}>,
-                        onChangeText: ( name: string ) => void,
-                        detailRoute: ( name: string ) => string }) {
-
-  const content = list.map( (item, index) => {
+export function List({
+  list,
+  onChangeText,
+  detailRoute,
+}: {
+  list: Array<{ name: string, url: string }>,
+  onChangeText: (name: string) => void,
+  detailRoute: (name: string) => string,
+}) {
+  const content = list.map((item, index) => {
     if (item === undefined) {
       return '';
     }
 
     return (
-      <a href={detailRoute(item.name)} key={index}><div className="result">{item.name}</div></a>
+      <a href={detailRoute(item.name)} key={index}>
+        <div className="result">{item.name}</div>
+      </a>
     );
   });
 
   // Return the component structure in HTML
-  return(
+  return (
     <div className="content">
       <div className="header">
-        <Logo
-          height="100px"
-          width="100px"
-        />
+        <Logo height="100px" width="100px" />
         <h1>Rakuten React Kit</h1>
       </div>
       <div className="search-container">
@@ -55,10 +56,8 @@ export function List( { list,
         />
       </div>
       <div className="results-container">
-        <h3>Results({ list.length })</h3>
-        <div >
-          { content }
-        </div>
+        <h3>Results({list.length})</h3>
+        <div>{content}</div>
       </div>
     </div>
   );

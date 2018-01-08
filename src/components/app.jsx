@@ -14,24 +14,22 @@
 
 // @flow
 
-import * as React from "react";
+import * as React from 'react';
 
-import { List } from "components/list";
-import { Detail } from "components/detail";
+import { List } from 'components/list';
+import { Detail } from 'components/detail';
 
-import type { State } from "domain/store/state/main";
-import { detailRoute } from "domain/middleware/router";
-import { onChangeIncrementalSearch } from "domain/middleware/user";
+import type { State } from 'domain/store/state/main';
+import { detailRoute } from 'domain/middleware/router';
+import { onChangeIncrementalSearch } from 'domain/middleware/user';
 
 // Define App as an importable function
-export function App({ state } :
-                    { state: State} ) {
-
+export function App({ state }: { state: State }) {
   const currentPageName = state.currentPage.name;
 
   // Define a 'content' variable which outputs content
   // according to the page routed to.
-  const content = ((pageName) => {
+  const content = (pageName => {
     switch (pageName) {
       case 'HOME_PAGE':
         const list = state.filteredItems;
@@ -45,11 +43,7 @@ export function App({ state } :
   })(currentPageName);
 
   // Return the component structure in HTML
-  return (
-    <div>
-      { content }
-    </div>
-  );
+  return <div>{content}</div>;
 }
 
 /*

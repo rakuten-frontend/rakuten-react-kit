@@ -13,32 +13,27 @@
 
 // @flow
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-import { getLogger } from "domain/logger";
-import { state } from "domain/store/main";
+import { getLogger } from 'domain/logger';
+import { state } from 'domain/store/main';
 
 // Make logger available
-const logger = getLogger("Renderer");
+const logger = getLogger('Renderer');
 
 // This function is responsible for rendering the application
-export default function render() : void {
-
+export default function render(): void {
   // Log the rendering start time
-  logger.time("DOM Render");
+  logger.time('DOM Render');
 
   const App = require('components/app').App;
 
   // Pass all props to the App component, and render to the target DOM element.
-  ReactDOM.render(
-    <App state={state()} />,
-    document.getElementById("app")
-  );
+  ReactDOM.render(<App state={state()} />, document.getElementById('app'));
 
   // Log the rendering end time
-  logger.timeEnd("DOM Rendered");
-
+  logger.timeEnd('DOM Rendered');
 }
 
 // Start hot module

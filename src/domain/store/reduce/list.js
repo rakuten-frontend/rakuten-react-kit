@@ -14,20 +14,20 @@
 
 // @flow
 
-import { Map } from "immutable";
-import { getLogger } from "domain/logger";
-import type { State, Item } from "domain/store/state/main";
+import { Map } from 'immutable';
+import { getLogger } from 'domain/logger';
+import type { State, Item } from 'domain/store/state/main';
 
-const logger = getLogger("Reduce/list");
+const logger = getLogger('Reduce/list');
 
-export function updateAllItems(state : State, allItems: Array<Item>) : State {
+export function updateAllItems(state: State, allItems: Array<Item>): State {
   logger.debug(`Update all items ${allItems.length} items`);
-  return new Map(state).set("allItems", allItems).toJS();
+  return new Map(state).set('allItems', allItems).toJS();
 }
 
-export function updateFilteredItems(state : State, list: Array<Item>) : State {
+export function updateFilteredItems(state: State, list: Array<Item>): State {
   logger.debug(`Update filtered items ${list.length}`);
-  return new Map(state).set("filteredItems", list).toJS();
+  return new Map(state).set('filteredItems', list).toJS();
 }
 
 /*
