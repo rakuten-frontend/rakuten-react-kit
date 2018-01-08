@@ -9,7 +9,8 @@
     "flow-server": "flow server",
     "flow": "flow || true",
     "build": "npm install && webpack -p --config webpack.config.js",
-    "sass-lint": "sass-lint -v"
+    "sass-lint": "sass-lint -v",
+    "prettify": "prettier --single-quote --print-width 120 --trailing-comma es5 --write '{src,__{tests,mocks}__}/**/*.{js,jsx}'"
   },
   "author": "Adam Munoz",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "file-loader": "^0.10.0",
     "flow-bin": "^0.39.0",
     "node-sass": "^4.5.0",
+    "prettier": "^1.9.2",
     "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.1",
