@@ -10,10 +10,23 @@
     "flow": "flow || true",
     "build": "npm install && webpack -p --config webpack.config.js",
     "sass-lint": "sass-lint -v",
+    "lint-staged": "lint-staged",
+    "lint-pass": "echo '\\033[4;32m♡' Awsome! You are ready to commit ♡' \\033[0m'",
     "prettify": "prettier --single-quote --print-width 120 --trailing-comma es5 --write '{src,__{tests,mocks}__}/**/*.{js,jsx}'"
   },
   "author": "Adam Munoz",
   "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --single-quote --print-width 120 --trailing-comma es5 --parser flow --write",
+      "git add",
+      "flow"
+    ]
+  },
+  "pre-commit": [
+    "lint-staged",
+    "lint-pass"
+  ],
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
@@ -24,7 +37,9 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.0",
     "flow-bin": "^0.39.0",
+    "lint-staged": "^6.0.0",
     "node-sass": "^4.5.0",
+    "pre-commit": "^1.2.2",
     "prettier": "^1.9.2",
     "sass-lint": "^1.10.2",
     "sass-loader": "^6.0.2",
