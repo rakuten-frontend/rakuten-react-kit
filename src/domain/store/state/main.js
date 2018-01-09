@@ -38,7 +38,7 @@ export type State = {
   detail: DetailItem,
 };
 
-export const defaultState = {
+const defaultState = {
   currentPage: { name: 'HOME_PAGE' },
   allItems: [],
   filteredItems: [],
@@ -51,6 +51,8 @@ export const defaultState = {
     },
   },
 };
+
+export default defaultState;
 
 /*
  * EOF: src/domain/store/state/main.js

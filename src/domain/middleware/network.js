@@ -19,7 +19,7 @@
 import axios from 'axios';
 
 import { fromJS } from 'immutable';
-import { getLogger } from 'domain/logger';
+import getLogger from 'domain/logger';
 
 import { store } from 'domain/store/main';
 import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from 'domain/store/actions/main';
@@ -35,23 +35,19 @@ export function getList() {
   logger.debug('Requesting list from network');
   return axios
     .get(URL)
-    .then(response => {
-      return response.data.pokemon.map(obj => {
-        return {
-          name: obj.pokemon.name,
-          url: obj.pokemon.url,
-        };
-      });
-    })
+    .then(response =>
+      response.data.pokemon.map(obj => ({
+        name: obj.pokemon.name,
+        url: obj.pokemon.url,
+      }))
+    )
     .catch(logger.error);
 }
 
 export function getDetailByName(name: string) {
   return axios
     .get(`${URL_DETAIL}${name}`)
-    .then(response => {
-      return response.data;
-    })
+    .then(response => response.data)
     .catch(logger.error);
 }
 

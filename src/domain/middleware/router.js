@@ -18,7 +18,7 @@
 
 import page from 'page';
 
-import { getLogger } from 'domain/logger';
+import getLogger from 'domain/logger';
 
 import { store } from 'domain/store/main';
 import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from 'domain/middleware/network';
@@ -44,7 +44,7 @@ export default function startRouters() {
     store.dispatch(updateCurrentPageAction({ name: 'DETAIL_PAGE' }));
   });
 
-  homeRouter(ctx => {
+  homeRouter(() => {
     logger.debug('Home route');
     getList().then(onListFromNetwork);
     store.dispatch(updateCurrentPageAction({ name: 'HOME_PAGE' }));

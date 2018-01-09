@@ -14,12 +14,12 @@
 
 // @flow
 
-import * as React from 'react';
+import React from 'react';
 
-import { Logo } from 'components/rakuten-logo';
+import Logo from 'components/rakuten-logo';
 
 // Exports List as a importable function
-export function List({
+export default function List({
   list,
   onChangeText,
   detailRoute,
@@ -28,13 +28,13 @@ export function List({
   onChangeText: (name: string) => void,
   detailRoute: (name: string) => string,
 }) {
-  const content = list.map((item, index) => {
+  const content = list.map(item => {
     if (item === undefined) {
       return '';
     }
 
     return (
-      <a href={detailRoute(item.name)} key={index}>
+      <a href={detailRoute(item.name)} key={item.name}>
         <div className="result">{item.name}</div>
       </a>
     );

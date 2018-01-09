@@ -13,11 +13,12 @@
 
 // @flow
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import { getLogger } from 'domain/logger';
+import getLogger from 'domain/logger';
 import { state } from 'domain/store/main';
+import App from 'components/app';
 
 // Make logger available
 const logger = getLogger('Renderer');
@@ -26,8 +27,6 @@ const logger = getLogger('Renderer');
 export default function render(): void {
   // Log the rendering start time
   logger.time('DOM Render');
-
-  const App = require('components/app').App;
 
   // Pass all props to the App component, and render to the target DOM element.
   ReactDOM.render(<App state={state()} />, document.getElementById('app'));

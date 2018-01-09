@@ -15,7 +15,7 @@
 // @flow
 
 import { createStore } from 'redux';
-import { reduceApp } from 'domain/store/reduce/main';
+import reduceApp from 'domain/store/reduce/main';
 
 import type { State } from 'domain/store/state/main';
 

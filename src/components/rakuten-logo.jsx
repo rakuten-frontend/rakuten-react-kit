@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-export function Logo({ height, width }: { height: string, width: string }) {
+export default function Logo({ height, width }: { height: string, width: string }) {
   return (
     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width={width} height={height}>
       <path

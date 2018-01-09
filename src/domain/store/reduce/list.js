@@ -15,7 +15,7 @@
 // @flow
 
 import { Map } from 'immutable';
-import { getLogger } from 'domain/logger';
+import getLogger from 'domain/logger';
 import type { State, Item } from 'domain/store/state/main';
 
 const logger = getLogger('Reduce/list');

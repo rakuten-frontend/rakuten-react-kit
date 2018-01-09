@@ -16,7 +16,7 @@
 
 // @flow
 
-import { getLogger } from 'domain/logger';
+import getLogger from 'domain/logger';
 import { filter, map, every } from 'lodash';
 
 import { store, state } from 'domain/store/main';
@@ -38,7 +38,7 @@ function filterByName(name: string): Array<Item> {
   return allItems;
 }
 
-export function onChangeIncrementalSearch(name: string): void {
+export default function onChangeIncrementalSearch(name: string): void {
   logger.debug('Incremental Search By Name');
   store.dispatch(updateFilteredItemsAction(filterByName(name)));
 }
