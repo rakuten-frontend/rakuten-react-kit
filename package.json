@@ -19,7 +19,7 @@
   "license": "MIT",
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "prettier --single-quote --print-width 120 --trailing-comma es5 --parser flow --write",
+      "prettier --single-quote --print-width 120 --trailing-comma es5 --write",
       "git add",
       "flow",
       "eslint --cache --max-warnings 0"
