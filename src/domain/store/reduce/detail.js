@@ -14,14 +14,16 @@
 
 // @flow
 import { fromJS } from 'immutable';
-import { getLogger } from "domain/logger";
-import type { State, DetailItem } from "domain/store/state/main";
+import getLogger from 'domain/logger';
+import type { State, DetailItem } from 'domain/store/state/main';
 
-const logger = getLogger("Reduce/detail");
+const logger = getLogger('Reduce/detail');
 
-export function displayDetail(state : State, detail: DetailItem) : State {
-  logger.debug(`Display detail ${ detail.name }`);
-  return fromJS(state).set('detail', detail).toJS();
+export default function displayDetail(state: State, detail: DetailItem): State {
+  logger.debug(`Display detail ${detail.name}`);
+  return fromJS(state)
+    .set('detail', detail)
+    .toJS();
 }
 
 /*

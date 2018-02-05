@@ -14,8 +14,8 @@
 
 // @flow
 
-type HomePage = { name: "HOME_PAGE" };
-type DetailPage = { name: "DETAIL_PAGE" };
+type HomePage = { name: 'HOME_PAGE' };
+type DetailPage = { name: 'DETAIL_PAGE' };
 export type Page = HomePage | DetailPage;
 export type Item = { name: string, url: string };
 export type DetailItem = {
@@ -23,34 +23,36 @@ export type DetailItem = {
   height: number,
   weight: number,
   sprites: {
-    frontDefault: string
-  }
+    frontDefault: string,
+  },
 };
 export type DetailItemFromNetwork = {
   sprites: {
-    front_default: string
-  }
+    front_default: string,
+  },
 };
 export type State = {
   currentPage: Page,
   allItems: Array<Item>,
   filteredItems: Array<Item>,
-  detail: DetailItem
+  detail: DetailItem,
 };
 
-export const defaultState = {
-  currentPage: { name: "HOME_PAGE" },
+const defaultState = {
+  currentPage: { name: 'HOME_PAGE' },
   allItems: [],
   filteredItems: [],
   detail: {
-    name: "",
+    name: '',
     height: 0,
     weight: 0,
     sprites: {
-      frontDefault: ""
-    }
-  }
+      frontDefault: '',
+    },
+  },
 };
+
+export default defaultState;
 
 /*
  * EOF: src/domain/store/state/main.js

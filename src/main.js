@@ -14,17 +14,16 @@
 
 // @flow
 
-import render from './renderer'
-import { getLogger } from "domain/logger";
-import { store } from "domain/store/main";
-import startRouters from "domain/middleware/router";
+import getLogger from 'domain/logger';
+import { store } from 'domain/store/main';
+import startRouters from 'domain/middleware/router';
+import render from './renderer';
 
 // import stylesheets
 require('../style/main.scss');
 
 // Make logger available
-const logger = getLogger("Main");
-
+const logger = getLogger('Main');
 
 // Subscribe to the store and to ensure it will re-render your app
 // whenever there is a store update.
