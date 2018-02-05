@@ -12,28 +12,28 @@
  * This file defines the 'detail' component and how it will be rendered.
  */
 
-import * as React from "react";
-import { Logo } from "components/rakuten-logo";
-import { DetailItem } from "domain/store/state/main";
+import * as React from 'react';
+import { Logo } from 'components/rakuten-logo';
+import { DetailItem } from 'domain/store/state/main';
 
 // Exports List as a importable function
 export function Detail( { detail } :
                         { detail: DetailItem }) {
 
   return(
-    <div className="content">
-      <div className="header">
-        <div className="link-back">
-          <a href="javascript:history.back()">&lt;&lt; Back</a>
+    <div className='content'>
+      <div className='header'>
+        <div className='link-back'>
+          <a href='javascript:history.back()'>&lt;&lt; Back</a>
         </div>
         <Logo
-          height="100px"
-          width="100px"
+          height='100px'
+          width='100px'
         />
         <h1>Rakuten React Kit</h1>
       </div>
-      <div className="detail-info-container">
-        <div className="detail-info">
+      <div className='detail-info-container'>
+        <div className='detail-info'>
           <img src={ detail.sprites.frontDefault } alt={detail.name} />
           <ul>
             <li>name : { detail.name }</li>

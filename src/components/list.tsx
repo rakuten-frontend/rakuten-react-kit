@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import * as React from "react";
+import * as React from 'react';
 import Fairybread from 'fairybread';
 
-import { Logo } from "components/rakuten-logo";
+import { Logo } from 'components/rakuten-logo';
 
 
 // Exports List as a importable function
@@ -77,7 +77,7 @@ export function List( { list,
   const content = list.map((item, index) =>
     item === undefined ? '' :
       <a href={detailRoute(item.name)} key={index}>
-        <div className="result">{item.name}
+        <div className='result'>{item.name}
         </div>
       </a>);
 
@@ -86,22 +86,22 @@ export function List( { list,
 
       <style>{sheet.render('raw').css}</style>
 
-      <div className="header">
+      <div className='header'>
         <Logo
-          height="100px"
-          width="100px"
+          height='100px'
+          width='100px'
         />
         <h1>Rakuten React Kit</h1>
       </div>
-      <div className="search-container">
+      <div className='search-container'>
         <input
-          type="text"
+          type='text'
           onChange={event => onChangeText(event.target.value)}
-          placeholder="Search by name"
-          className="search-box"
+          placeholder='Search by name'
+          className='search-box'
         />
       </div>
-      <div className="results-container">
+      <div className='results-container'>
         <h3>Results({ list.length })</h3>
         <div >
           { content }

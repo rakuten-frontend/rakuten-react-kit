@@ -7,9 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getLogger } from "domain/logger";
-import { store } from "domain/store/main";
-import startRouters from "domain/middleware/router";
+import { getLogger } from 'domain/logger';
+import { store } from 'domain/store/main';
+import startRouters from 'domain/middleware/router';
 import render from 'renderer';
 
 const logger = getLogger('main');

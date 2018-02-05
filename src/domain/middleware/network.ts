@@ -7,14 +7,14 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getLogger } from "domain/logger";
-import { store } from "domain/store/main";
-import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
-import { Item, DetailItemFromNetwork, DetailItem } from "domain/store/state/main";
+import { getLogger } from 'domain/logger';
+import { store } from 'domain/store/main';
+import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from 'domain/store/actions/main';
+import { Item, DetailItemFromNetwork, DetailItem } from 'domain/store/state/main';
 
 type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
-const logger = getLogger("Middleware/network");
+const logger = getLogger('Middleware/network');
 const URL = 'https://pokeapi.co/api/v2/type/1/';
 const URL_DETAIL = 'https://pokeapi.co/api/v2/pokemon/';
 
@@ -28,7 +28,7 @@ export async function getList() {
         name: e.pokemon.name,
         url: e.pokemon.url
       }))}
-  else throw new TypeError("getList response is not Ok");
+  else throw new TypeError('getList response is not Ok');
 }
 
 export async function getDetailByName(name: string) {
@@ -37,11 +37,11 @@ export async function getDetailByName(name: string) {
   if (resp.ok) {
     return resp.json()
   }
-  else throw new TypeError("getDetailByName response is not Ok");
+  else throw new TypeError('getDetailByName response is not Ok');
 }
 
 export function onListFromNetwork(list : Array<Item>) {
-  logger.debug("List from network");
+  logger.debug('List from network');
   store.dispatch(updateAllItemsAction(list));
   store.dispatch(updateFilteredItemsAction(list));
 }
@@ -56,6 +56,6 @@ function camelCaseImageFront(detail : DetailItemFromNetwork): DetailItem {
 }
 
 export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
-  logger.debug("Detail from network");
+  logger.debug('Detail from network');
   store.dispatch(displayDetailAction(camelCaseImageFront(detail)))
 }

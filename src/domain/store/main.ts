@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { createStore } from "redux";
-import { reduceApp } from "domain/store/reduce/main";
+import { createStore } from 'redux';
+import { reduceApp } from 'domain/store/reduce/main';
 
-import { State } from "domain/store/state/main";
+import { State } from 'domain/store/state/main';
 
 export const store = createStore(reduceApp);
 

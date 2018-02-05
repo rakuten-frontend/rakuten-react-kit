@@ -14,13 +14,13 @@
 
 // @flow
 
-import * as React from "react";
-import { State } from "domain/store/state/main";
+import * as React from 'react';
+import { State } from 'domain/store/state/main';
 import Fairybread from 'fairybread';
-import { List } from "components/list";
-import { Detail } from "components/detail";
-import { detailRoute } from "domain/middleware/router";
-import { onChangeIncrementalSearch } from "domain/middleware/user";
+import { List } from 'components/list';
+import { Detail } from 'components/detail';
+import { detailRoute } from 'domain/middleware/router';
+import { onChangeIncrementalSearch } from 'domain/middleware/user';
 
 export function App({ state } : { state: State} ) {
 

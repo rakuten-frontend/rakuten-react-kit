@@ -7,8 +7,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-export type HomePage = { name: "HOME_PAGE" };
-export type DetailPage = { name: "DETAIL_PAGE" };
+export type HomePage = { name: 'HOME_PAGE' };
+export type DetailPage = { name: 'DETAIL_PAGE' };
 export type Page = HomePage | DetailPage;
 
 export type Item = { name: string, url: string };
@@ -38,15 +38,15 @@ export type State = {
 };
 
 export const defaultState : State = {
-  currentPage: { name: "HOME_PAGE" },
+  currentPage: { name: 'HOME_PAGE' },
   allItems: [],
   filteredItems: [],
   detail: {
-    name: "",
+    name: '',
     height: 0,
     weight: 0,
     sprites: {
-      frontDefault: ""
+      frontDefault: ''
     }
   }
 };

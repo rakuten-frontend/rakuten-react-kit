@@ -12,10 +12,10 @@
  * This file is responsible for updating 'currentPage' in our state.
  */
 
-import { getLogger } from "domain/logger";
-import { State, Page } from "domain/store/state/main";
+import { getLogger } from 'domain/logger';
+import { State, Page } from 'domain/store/state/main';
 
-const logger = getLogger("Reduce/currentPage");
+const logger = getLogger('Reduce/currentPage');
 
 export function updateCurrentPage( state : State, page: Page ) : State {
   logger.debug(`Update current page ${page.name}`);

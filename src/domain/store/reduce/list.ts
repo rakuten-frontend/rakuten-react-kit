@@ -7,10 +7,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getLogger } from "domain/logger";
-import { State, Item } from "domain/store/state/main";
+import { getLogger } from 'domain/logger';
+import { State, Item } from 'domain/store/state/main';
 
-const logger = getLogger("Reduce/list");
+const logger = getLogger('Reduce/list');
 
 export function updateAllItems(state : State, allItems: Array<Item>) : State {
   logger.debug(`Update all items ${allItems.length} items`);

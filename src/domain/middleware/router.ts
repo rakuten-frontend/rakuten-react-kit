@@ -7,38 +7,38 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import page from "page";
+import page from 'page';
 
-import { getLogger } from "domain/logger";
-import { store } from "domain/store/main";
-import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from "domain/middleware/network";
-import { updateCurrentPageAction } from "domain/store/actions/main";
+import { getLogger } from 'domain/logger';
+import { store } from 'domain/store/main';
+import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from 'domain/middleware/network';
+import { updateCurrentPageAction } from 'domain/store/actions/main';
 
 type Context = { params: { name: string } };
 type OnRoute = (ctx: Context) => void;
 
-const logger = getLogger("Middleware/router");
+const logger = getLogger('Middleware/router');
 
 function detailRouter(onRoute : OnRoute) {
-  page("/detail/:name", onRoute );
+  page('/detail/:name', onRoute );
 }
 
 function homeRouter(onRoute : OnRoute) {
-  page("", onRoute );
+  page('', onRoute );
 }
 export default function startRouters() {
 
   detailRouter((ctx: Context) => {
-    logger.debug("Detail route");
+    logger.debug('Detail route');
     const name = ctx.params.name;
     getDetailByName(name).then(onDetailFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: "DETAIL_PAGE" }));
+    store.dispatch(updateCurrentPageAction({ name: 'DETAIL_PAGE' }));
   });
 
   homeRouter((ctx) => {
-    logger.debug("Home route");
+    logger.debug('Home route');
     getList().then(onListFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: "HOME_PAGE" }));
+    store.dispatch(updateCurrentPageAction({ name: 'HOME_PAGE' }));
   });
 
   page();

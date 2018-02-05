@@ -7,13 +7,13 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getLogger } from "domain/logger";
+import { getLogger } from 'domain/logger';
 import {filter, map, every } from 'lodash';
-import { store, state } from "domain/store/main";
-import { updateFilteredItemsAction } from "domain/store/actions/main";
-import { Item } from "domain/store/state/main";
+import { store, state } from 'domain/store/main';
+import { updateFilteredItemsAction } from 'domain/store/actions/main';
+import { Item } from 'domain/store/state/main';
 
-const logger = getLogger("Middleware/user");
+const logger = getLogger('Middleware/user');
 
 function filterByName(name: string): Array<Item> {
   const allItems = state().allItems;
@@ -28,6 +28,6 @@ function filterByName(name: string): Array<Item> {
 }
 
 export function onChangeIncrementalSearch(name: string): void {
-  logger.debug("Incremental Search By Name");
+  logger.debug('Incremental Search By Name');
   store.dispatch(updateFilteredItemsAction(filterByName(name)));
 }
