@@ -16,56 +16,56 @@
 
 // @flow
 
-import axios from "axios";
+import axios from 'axios';
 
 import { fromJS } from 'immutable';
-import { getLogger } from "domain/logger";
+import getLogger from 'domain/logger';
 
-import { store } from "domain/store/main";
-import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from "domain/store/actions/main";
+import { store } from 'domain/store/main';
+import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from 'domain/store/actions/main';
 
-import type { Item, DetailItemFromNetwork } from "domain/store/state/main";
+import type { Item, DetailItemFromNetwork } from 'domain/store/state/main';
 
-const logger = getLogger("Middleware/network");
+const logger = getLogger('Middleware/network');
 
 const URL = 'https://pokeapi.co/api/v2/type/1/';
 const URL_DETAIL = 'https://pokeapi.co/api/v2/pokemon/';
 
 export function getList() {
   logger.debug('Requesting list from network');
-  return axios.get(URL)
-       .then(response => {
-         return response.data.pokemon.map(obj => {
-           return {
-             name: obj.pokemon.name,
-             url: obj.pokemon.url
-           };
-         });
-       })
-      .catch(logger.error);
+  return axios
+    .get(URL)
+    .then(response =>
+      response.data.pokemon.map(obj => ({
+        name: obj.pokemon.name,
+        url: obj.pokemon.url,
+      }))
+    )
+    .catch(logger.error);
 }
 
 export function getDetailByName(name: string) {
-  return axios.get(`${URL_DETAIL}${name}`)
-      .then(response => {
-        return response.data;
-      })
-      .catch(logger.error)
+  return axios
+    .get(`${URL_DETAIL}${name}`)
+    .then(response => response.data)
+    .catch(logger.error);
 }
 
-export function onListFromNetwork(list : Array<Item>) {
-  logger.debug("List from network");
+export function onListFromNetwork(list: Array<Item>) {
+  logger.debug('List from network');
   store.dispatch(updateAllItemsAction(list));
   store.dispatch(updateFilteredItemsAction(list));
 }
 
-function camelCaseImageFront(detail : DetailItemFromNetwork) {
-  return fromJS(detail).setIn(['sprites', 'frontDefault'], detail.sprites.front_default).toJS();
+function camelCaseImageFront(detail: DetailItemFromNetwork) {
+  return fromJS(detail)
+    .setIn(['sprites', 'frontDefault'], detail.sprites.front_default)
+    .toJS();
 }
 
-export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
-  logger.debug("Detail from network");
-  store.dispatch(displayDetailAction(camelCaseImageFront(detail)))
+export function onDetailFromNetwork(detail: DetailItemFromNetwork) {
+  logger.debug('Detail from network');
+  store.dispatch(displayDetailAction(camelCaseImageFront(detail)));
 }
 
 /*

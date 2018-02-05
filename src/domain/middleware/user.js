@@ -16,15 +16,15 @@
 
 // @flow
 
-import { getLogger } from "domain/logger";
-import {filter, map, every } from 'lodash';
+import getLogger from 'domain/logger';
+import { filter, map, every } from 'lodash';
 
-import { store, state } from "domain/store/main";
-import { updateFilteredItemsAction } from "domain/store/actions/main";
+import { store, state } from 'domain/store/main';
+import { updateFilteredItemsAction } from 'domain/store/actions/main';
 
-import type { Item } from "domain/store/state/main";
+import type { Item } from 'domain/store/state/main';
 
-const logger = getLogger("Middleware/user");
+const logger = getLogger('Middleware/user');
 
 function filterByName(name: string): Array<Item> {
   const allItems = state().allItems;
@@ -38,8 +38,8 @@ function filterByName(name: string): Array<Item> {
   return allItems;
 }
 
-export function onChangeIncrementalSearch(name: string): void {
-  logger.debug("Incremental Search By Name");
+export default function onChangeIncrementalSearch(name: string): void {
+  logger.debug('Incremental Search By Name');
   store.dispatch(updateFilteredItemsAction(filterByName(name)));
 }
 

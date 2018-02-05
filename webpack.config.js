@@ -34,7 +34,7 @@ module.exports = {
   },
 
   devServer: {
-    quiet: true,
+    quiet: false,
     historyApiFallback: {
       index: "index.html"
     }
@@ -43,9 +43,17 @@ module.exports = {
   plugins: [extractStyles],
   module: {
     rules: [
+      // ESLint checking
+      {
+        enforce: 'pre',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: 'eslint-loader'
+      },
 
       // Babel automatic loading
-      { test: /\.jsx?$/,
+      {
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
         query: {
