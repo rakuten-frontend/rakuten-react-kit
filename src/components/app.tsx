@@ -15,7 +15,7 @@
 // @flow
 
 import * as React from 'react';
-import { State } from 'domain/store/state/main';
+import { State } from 'domain/store/main';
 import Fairybread from 'fairybread';
 import { List } from 'components/list';
 import { Detail } from 'components/detail';

@@ -5,29 +5,29 @@
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */
+ */ 
 
-import { defaultState, State } from 'domain/store/state/main';
-import { Action } from 'domain/store/actions/main';
-import { updateCurrentPage } from 'domain/store/reduce/currentPage';
-import { updateAllItems, updateFilteredItems } from 'domain/store/reduce/list';
-import { displayDetail } from 'domain/store/reduce/detail';
+import { getLogger } from 'domain/logger';
+import { store, State, Page, Item, DetailItem } from 'domain/store/main';
 
-export function reduceApp(state : State = defaultState, action : Action ) : State {
-  switch (action.type) {
-    case 'UPDATE_CURRENT_PAGE':
-      return updateCurrentPage(state, action.page);
+const logger = getLogger('State');
 
-    case 'UPDATE_ALL_ITEMS':
-      return updateAllItems(state, action.allItems);
+export function updateCurrentPage(currentPage: Page) {
+  logger.debug(`Update current page ${currentPage.name}`);
+  return store.swap(oldState  => ({...oldState, currentPage }));
+}
 
-    case 'UPDATE_FILTERED_ITEMS':
-      return updateFilteredItems(state, action.filteredItems);
+export function updateAllItems(items: Array<Item>) {
+  logger.debug(`Update all items ${items.length} items`);
+  return store.swap(oldState  => ({...oldState, items }));
+}
 
-    case 'DISPLAY_DETAIL':
-      return displayDetail(state, action.detail);
+export function updateFileteredItems(filteredItems: Array<Item>) {
+  logger.debug(`Update filtered items ${filteredItems.length}`);
+  return store.swap(oldState  => ({...oldState, filteredItems }));
+}
 
-    default:
-      return state;
-  }
+export function updateDetailItem(detail: DetailItem){
+  logger.debug(`Update detail item ${ detail.name }`);
+  return store.swap(oldState  => ({...oldState, detail }));
 }

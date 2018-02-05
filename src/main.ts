@@ -7,13 +7,9 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { getLogger } from 'domain/logger';
 import { store } from 'domain/store/main';
-import startRouters from 'domain/middleware/router';
 import render from 'renderer';
+import startRouters from 'domain/middleware/router';
 
-const logger = getLogger('main');
-logger.debug('Subscribing to store');
-store.subscribe(render);
-logger.debug('Start routers');
+store.addWatch('renderLoop', render);
 startRouters();

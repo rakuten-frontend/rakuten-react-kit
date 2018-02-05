@@ -10,9 +10,8 @@
 import page from 'page';
 
 import { getLogger } from 'domain/logger';
-import { store } from 'domain/store/main';
 import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from 'domain/middleware/network';
-import { updateCurrentPageAction } from 'domain/store/actions/main';
+import { updateCurrentPage } from 'domain/store/reduce/main';
 
 type Context = { params: { name: string } };
 type OnRoute = (ctx: Context) => void;
@@ -32,13 +31,13 @@ export default function startRouters() {
     logger.debug('Detail route');
     const name = ctx.params.name;
     getDetailByName(name).then(onDetailFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: 'DETAIL_PAGE' }));
+    updateCurrentPage({ name: 'DETAIL_PAGE' })
   });
 
   homeRouter((ctx) => {
     logger.debug('Home route');
     getList().then(onListFromNetwork);
-    store.dispatch(updateCurrentPageAction({ name: 'HOME_PAGE' }));
+    updateCurrentPage({ name: 'HOME_PAGE' })
   });
 
   page();

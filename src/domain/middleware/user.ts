@@ -9,25 +9,25 @@
 
 import { getLogger } from 'domain/logger';
 import {filter, map, every } from 'lodash';
-import { store, state } from 'domain/store/main';
-import { updateFilteredItemsAction } from 'domain/store/actions/main';
-import { Item } from 'domain/store/state/main';
+import { Item } from 'domain/store/main';
+import { allItems } from 'domain/store/selectors/main';
+import { updateFileteredItems } from 'domain/store/reduce/main';
 
 const logger = getLogger('Middleware/user');
 
 function filterByName(name: string): Array<Item> {
-  const allItems = state().allItems;
+  const items = allItems();
   if (name.length > 0) {
     const searchWordsArray = name.replace(/^[\s]+|[\s]+$/g, '').split(/\s/);
-    return filter(allItems, item => {
+    return filter(items, item => {
       const results = map(searchWordsArray, word => item.name.search(new RegExp(word, 'i')));
       return every(results, result => result !== -1);
     });
   }
-  return allItems;
+  return items;
 }
 
 export function onChangeIncrementalSearch(name: string): void {
   logger.debug('Incremental Search By Name');
-  store.dispatch(updateFilteredItemsAction(filterByName(name)));
+  updateFileteredItems(filterByName(name));
 }

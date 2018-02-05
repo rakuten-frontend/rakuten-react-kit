@@ -7,14 +7,53 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import { createStore } from 'redux';
-import { reduceApp } from 'domain/store/reduce/main';
+import { createAtom } from 'js-atom';
 
-import { State } from 'domain/store/state/main';
+export type HomePage = { name: 'HOME_PAGE' };
 
-export const store = createStore(reduceApp);
+export type DetailPage = { name: 'DETAIL_PAGE' };
 
-// We use this wrapper function so that we can have type checking
-export function state() : State {
-  return store.getState();
-}
+export type Page = HomePage | DetailPage;
+
+export type Item = { name: string, url: string };
+
+export type DetailItem = {
+  name: string,
+  height: number,
+  weight: number,
+  sprites: {
+    frontDefault: string
+  }
+};
+
+export type DetailItemFromNetwork = {
+  name: string,
+  height: number,
+  weight: number,
+  sprites: {
+    front_default: string
+  }
+};
+
+export type State = {
+  currentPage: Page,
+  allItems: Array<Item>,
+  filteredItems: Array<Item>,
+  detail: DetailItem
+};
+
+const defaultState : State = {
+  currentPage: { name: 'HOME_PAGE' },
+  allItems: [],
+  filteredItems: [],
+  detail: {
+    name: '',
+    height: 0,
+    weight: 0,
+    sprites: {
+      frontDefault: ''
+    }
+  }
+};
+
+export const store = createAtom(defaultState);

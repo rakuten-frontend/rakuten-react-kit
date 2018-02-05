@@ -14,7 +14,7 @@
 
 import * as React from 'react';
 import { Logo } from 'components/rakuten-logo';
-import { DetailItem } from 'domain/store/state/main';
+import { DetailItem } from 'domain/store/main';
 
 // Exports List as a importable function
 export function Detail( { detail } :

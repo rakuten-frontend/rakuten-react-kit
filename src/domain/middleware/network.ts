@@ -8,9 +8,8 @@
  */
 
 import { getLogger } from 'domain/logger';
-import { store } from 'domain/store/main';
-import { updateAllItemsAction, updateFilteredItemsAction, displayDetailAction } from 'domain/store/actions/main';
-import { Item, DetailItemFromNetwork, DetailItem } from 'domain/store/state/main';
+import { Item, DetailItem, DetailItemFromNetwork } from 'domain/store/main';
+import { updateAllItems, updateFileteredItems, updateDetailItem } from 'domain/store/reduce/main'
 
 type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
@@ -40,12 +39,6 @@ export async function getDetailByName(name: string) {
   else throw new TypeError('getDetailByName response is not Ok');
 }
 
-export function onListFromNetwork(list : Array<Item>) {
-  logger.debug('List from network');
-  store.dispatch(updateAllItemsAction(list));
-  store.dispatch(updateFilteredItemsAction(list));
-}
-
 function camelCaseImageFront(detail : DetailItemFromNetwork): DetailItem {
   return { 
     ...detail,
@@ -55,7 +48,13 @@ function camelCaseImageFront(detail : DetailItemFromNetwork): DetailItem {
   };
 }
 
+export function onListFromNetwork(list : Array<Item>) {
+  logger.debug('List from network');
+  updateAllItems(list);
+  updateFileteredItems(list);
+}
+
 export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
   logger.debug('Detail from network');
-  store.dispatch(displayDetailAction(camelCaseImageFront(detail)))
+  updateDetailItem(camelCaseImageFront(detail));
 }

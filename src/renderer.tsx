@@ -10,13 +10,15 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { getLogger } from 'domain/logger';
-import { state } from 'domain/store/main';
+import { state } from 'domain/store/selectors/main';
 
 const logger = getLogger('Renderer');
 
 export default async function render() {
   logger.time('DOM Render');
+
   const App = (await import('components/app')).App;
+
   ReactDOM.render(
     <App state={state()} />,
       document.getElementById('app')
