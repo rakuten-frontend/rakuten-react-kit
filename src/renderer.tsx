@@ -15,7 +15,7 @@ const logger = getLogger('Renderer');
 
 export default async function render() {
   logger.time('DOM Render');
-  const App = (await import('components/app')).App;
+  const App = (await import('components/container/app')).App;
   ReactDOM.render(<App />, document.getElementById('app'));
   logger.timeEnd('DOM Rendered');
 }
@@ -27,7 +27,7 @@ declare const module: {
 };
 
 if (module.hot) {
-  module.hot.accept('components/app', () => {
+  module.hot.accept('components/container/app', () => {
     logger.time('Hot update applied');
     render();
     logger.timeEnd('Hot update applied');

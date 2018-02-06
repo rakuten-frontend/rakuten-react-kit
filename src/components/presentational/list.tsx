@@ -10,7 +10,7 @@
 import * as React from 'react';
 import Fairybread from 'fairybread';
 
-import { Logo } from 'components/rakuten-logo';
+import { Logo } from 'components/presentational/rakuten-logo';
 
 
 // Exports List as a importable function

@@ -17,8 +17,8 @@
 import * as React from 'react';
 import Fairybread from 'fairybread';
 import { currentPage, filteredItems, detailItem } from 'domain/store/selectors/main';
-import { List } from 'components/list';
-import { Detail } from 'components/detail';
+import { List } from 'components/presentational/list';
+import { Detail } from 'components/presentational/detail';
 import { detailRoute } from 'domain/middleware/router';
 import { onChangeIncrementalSearch } from 'domain/middleware/user';
 

@@ -13,7 +13,7 @@
  */
 
 import * as React from 'react';
-import { Logo } from 'components/rakuten-logo';
+import { Logo } from 'components/presentational/rakuten-logo';
 import { DetailItem } from 'domain/store/main';
 
 // Exports List as a importable function
