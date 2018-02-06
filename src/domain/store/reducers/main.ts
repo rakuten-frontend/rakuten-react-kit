@@ -20,6 +20,7 @@ export function currentPage(currentPage: Page) {
 export function allItems(items: Array<Item>) {
   logger.debug(`Update all items ${items.length} items`);
   return store.swap(oldState  => ({...oldState, items }));
+  return store.swap(oldState  => ({...oldState, allItems: items }));
 }
 
 export function filteredItems(filteredItems: Array<Item>) {
