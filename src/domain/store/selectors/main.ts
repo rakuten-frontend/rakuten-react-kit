@@ -7,7 +7,7 @@
  */
 
 import { store } from 'domain/store/main';
-import { State, Item } from 'domain/store/main';
+import { State, Item, Page, DetailItem } from 'domain/store/main';
 
 export function state(): State {
   return store.deref();
@@ -15,4 +15,16 @@ export function state(): State {
 
 export function allItems(): Array<Item> {
   return state().allItems;
+}
+
+export function currentPage(): Page {
+  return state().currentPage;
+}
+
+export function filteredItems(): Array<Item> {
+  return state().filteredItems;
+}
+
+export function detailItem(): DetailItem {
+  return state().detail;
 }

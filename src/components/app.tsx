@@ -15,14 +15,14 @@
 // @flow
 
 import * as React from 'react';
-import { State } from 'domain/store/main';
 import Fairybread from 'fairybread';
+import { currentPage, filteredItems, detailItem } from 'domain/store/selectors/main';
 import { List } from 'components/list';
 import { Detail } from 'components/detail';
 import { detailRoute } from 'domain/middleware/router';
 import { onChangeIncrementalSearch } from 'domain/middleware/user';
 
-export function App({ state } : { state: State} ) {
+export function App() {
 
   const sheet = new Fairybread('global');
   sheet.add('html', 'height:100%');
@@ -32,19 +32,20 @@ export function App({ state } : { state: State} ) {
   sheet.add('.content', 'width: 100%;');
   sheet.addSpecial(`@import url('https://fonts.googleapis.com/css?family=Asap');`);
 
-  const currentPageName = state.currentPage.name;
+  const currentPageName = currentPage();
+
   const content = (pageName => {
     switch (pageName) {
       case 'HOME_PAGE':
-        const list = state.filteredItems;
+        const list = filteredItems();
         return <List list={list} onChangeText={onChangeIncrementalSearch} detailRoute={detailRoute} />;
       case 'DETAIL_PAGE':
-        const detail = state.detail;
+        const detail = detailItem();
         return <Detail detail={detail} />;
       default:
         return <p>Page not found</p>;
     }
-  })(currentPageName);
+  })(currentPageName.name);
 
   return (
     <div>

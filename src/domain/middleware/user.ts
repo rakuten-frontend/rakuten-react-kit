@@ -11,7 +11,7 @@ import { getLogger } from 'domain/logger';
 import {filter, map, every } from 'lodash';
 import { Item } from 'domain/store/main';
 import { allItems } from 'domain/store/selectors/main';
-import { filteredItems } from 'domain/store/reducers/main';
+import { updateFilteredItems } from 'domain/store/reducers/main';
 
 const logger = getLogger('Middleware/user');
 
@@ -29,5 +29,5 @@ function filterByName(name: string): Array<Item> {
 
 export function onChangeIncrementalSearch(name: string): void {
   logger.debug('Incremental Search By Name');
-  filteredItems(filterByName(name));
+  updateFilteredItems(filterByName(name));
 }

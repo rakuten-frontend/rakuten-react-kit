@@ -11,7 +11,7 @@ import page from 'page';
 
 import { getLogger } from 'domain/logger';
 import { getList, getDetailByName, onListFromNetwork, onDetailFromNetwork } from 'domain/middleware/network';
-import { currentPage } from 'domain/store/reducers/main';
+import { updateCurrentPage } from 'domain/store/reducers/main';
 
 type Context = { params: { name: string } };
 type OnRoute = (ctx: Context) => void;
@@ -31,13 +31,13 @@ export default function startRouters() {
     logger.debug('Detail route');
     const name = ctx.params.name;
     getDetailByName(name).then(onDetailFromNetwork);
-    currentPage({ name: 'DETAIL_PAGE' })
+    updateCurrentPage({ name: 'DETAIL_PAGE' })
   });
 
   homeRouter((ctx) => {
     logger.debug('Home route');
     getList().then(onListFromNetwork);
-    currentPage({ name: 'HOME_PAGE' })
+    updateCurrentPage({ name: 'HOME_PAGE' })
   });
 
   page();
