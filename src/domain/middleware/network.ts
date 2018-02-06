@@ -9,7 +9,7 @@
 
 import { getLogger } from 'domain/logger';
 import { Item, DetailItem, DetailItemFromNetwork } from 'domain/store/main';
-import { updateAllItems, updateFileteredItems, updateDetailItem } from 'domain/store/reduce/main'
+import { allItems, filteredItems, detailItem } from 'domain/store/reducers/main'
 
 type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
@@ -50,11 +50,11 @@ function camelCaseImageFront(detail : DetailItemFromNetwork): DetailItem {
 
 export function onListFromNetwork(list : Array<Item>) {
   logger.debug('List from network');
-  updateAllItems(list);
-  updateFileteredItems(list);
+  allItems(list);
+  filteredItems(list);
 }
 
 export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
   logger.debug('Detail from network');
-  updateDetailItem(camelCaseImageFront(detail));
+  detailItem(camelCaseImageFront(detail));
 }

@@ -12,22 +12,22 @@ import { store, State, Page, Item, DetailItem } from 'domain/store/main';
 
 const logger = getLogger('State');
 
-export function updateCurrentPage(currentPage: Page) {
+export function currentPage(currentPage: Page) {
   logger.debug(`Update current page ${currentPage.name}`);
   return store.swap(oldState  => ({...oldState, currentPage }));
 }
 
-export function updateAllItems(items: Array<Item>) {
+export function allItems(items: Array<Item>) {
   logger.debug(`Update all items ${items.length} items`);
   return store.swap(oldState  => ({...oldState, items }));
 }
 
-export function updateFileteredItems(filteredItems: Array<Item>) {
+export function filteredItems(filteredItems: Array<Item>) {
   logger.debug(`Update filtered items ${filteredItems.length}`);
   return store.swap(oldState  => ({...oldState, filteredItems }));
 }
 
-export function updateDetailItem(detail: DetailItem){
+export function detailItem(detail: DetailItem){
   logger.debug(`Update detail item ${ detail.name }`);
   return store.swap(oldState  => ({...oldState, detail }));
 }
