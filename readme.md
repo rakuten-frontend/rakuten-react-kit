@@ -5,7 +5,7 @@ Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
 ## Structure
 ```
 /
-├── build/                   
+├── build/
 │   ├──   index.html
 │   └──   bundle.js          : Application bundle
 │
@@ -15,22 +15,29 @@ Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
 │   ├── components/          : Application Components
 │   ├── domain/              : Business Logic
 │   │    ├── Middleware/     : Actors who dispatch the actions
-│   │    └── Store/        
-│   │         ├── actions/   
-│   │         ├── reducers/   
-│   │         └── state/  
+│   │    └── Store/
+│   │         ├── actions/
+│   │         ├── reducers/
+│   │         └── state/
 │   │
 │   ├── style/               : Global Styles
 │   └── main.jsx             : Application Entry Point
 │
 │
-├── .gitignore               
-├── .flowconfig              
-├── .css.js.flow             
-├── package.json             
-├── readme.md                
+├── .gitignore
+├── .flowconfig
+├── .css.js.flow
+├── package.json
+├── readme.md
 └── webpack.config.js        : Webpack config file
 ```
+
+## Install Dependencies
+
+```
+npm install
+```
+
 ## Development
 
 Run server with HMR (Hot Module Replacement) at [localhost:9090](http://localhost:9090)
