@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm install && webpack-dev-server --content-base build --hot=true --port 9090 --config webpack.config.js",
+    "start": "webpack-dev-server --content-base build --hot=true --port 9090 --config webpack.config.js",
     "flow-server": "flow server",
     "flow": "flow || true",
-    "build": "npm install && webpack -p --config webpack.config.js",
+    "build": "webpack -p --config webpack.config.js",
     "eslint": "eslint 'src/**/*.{js,jsx}' --fix",
     "sass-lint": "sass-lint -v",
     "lint-staged": "lint-staged",
