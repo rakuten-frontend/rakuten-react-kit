@@ -1,4 +1,4 @@
-# Rakuten React kit 2
+<img height=200px src="logo.png" />
 
 [![Docs](https://img.shields.io/badge/docs-wiki-blue.svg)](https://github.com/rakuten-frontend/rakuten-react-kit/wiki)
 [![Gitter](https://img.shields.io/gitter/room/rakuten-frontend/rakuten-react-kit.svg?style=flat)](https://gitter.im/rakuten-frontend/rakuten-react-kit)
