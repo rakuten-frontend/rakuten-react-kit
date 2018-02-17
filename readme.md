@@ -1,7 +1,7 @@
 
 <p align="center"><img height=125px src="logo.png" />
 </p>
-<p align="center">Starter Kit. Live programming environment. Functional programing concepts </p>
+<p align="center">Immutable state. Live programming environment. Functional programing concepts </p>
 <hr>
 <p align="center">
 <a href="https://github.com/rakuten-frontend/rakuten-react-kit/wiki">
@@ -24,6 +24,7 @@
 - 🔥 Hot Module Replacement
 - 💎 Crystal clean connection between state and UI
 - ✨ Super clean webpack
+- 🏮 Less ceremony, more fun!
 
 ## Local Development
 Install dependencies and start the live programing enviroment
