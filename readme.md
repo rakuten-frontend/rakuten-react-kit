@@ -1,5 +1,5 @@
 
-<p align="center"><img height=150px src="logo.png" />
+<p align="center"><img height=125px src="logo.png" />
 </p>
 <p align="center">Starter Kit. Live programming environment. Functional programing concepts </p>
 <hr>
@@ -17,7 +17,7 @@
 </a>
 </p>
 
-## Included
+## Includes
 
 - ⚙️ Functional programing concepts
 - 🔬 Atom like state managment
@@ -25,27 +25,24 @@
 - 💎 Crystal clean connection between state and UI
 - ✨ Super clean webpack
 
-## Development
-
-Install dependencies
-```
-npm i
-```
-
-Run server with HMR (Hot Module Replacement) at [localhost:8080](http://localhost:8080)
+## Local Development
+Install dependencies and start the live programing enviroment
+a server with HMR (Hot Module Replacement) will start at [localhost:8080](http://localhost:8080)
 
 ```
+npm install
 npm start
 ```
 See more about Hot Module Replacement [here](https://webpack.github.io/docs/hot-module-replacement.html)
 
-## Production
+## Building for Production
 
 Create minified bundle for deployment in the `build` directory
 
 ```
 npm run build
 ```
+
 ## Disclaimer
 This is an experimental project. Use it in production with caution.
 
