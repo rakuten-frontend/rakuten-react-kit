@@ -2,6 +2,7 @@
 <p align="center"><img height=200px src="logo.png" />
 </p>
 <p align="center">functional programming concepts and clear view/state relations</p>
+<hr>
 <p align="center">
 <a href="https://github.com/rakuten-frontend/rakuten-react-kit/wiki">
   <img alt="Docs" src="https://img.shields.io/badge/docs-wiki-blue.svg" />
@@ -14,8 +15,9 @@
 <a href="https://opensource.org/licenses/MIT">
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
 </a>
-<hr>
 </p>
+
+## Included
 
 - ⚙️ functional programing concepts
 - 🔬 atom like state managment
