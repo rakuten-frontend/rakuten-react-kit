@@ -1,5 +1,5 @@
 
-<p align="center"><img height=200px src="logo.png" />
+<p align="center"><img height=150px src="logo.png" />
 </p>
 <p align="center">Starter Kit. Live programming environment. Functional programing concepts </p>
 <hr>
