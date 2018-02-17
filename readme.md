@@ -1,7 +1,7 @@
 
 <p align="center"><img height=200px src="logo.png" />
 </p>
-<p align="center">functional programming concepts and clear view/state relations</p>
+<p align="center">Starter Kit. Live programming environment. Functional programing concepts </p>
 <hr>
 <p align="center">
 <a href="https://github.com/rakuten-frontend/rakuten-react-kit/wiki">
@@ -19,10 +19,11 @@
 
 ## Included
 
-- ⚙️ functional programing concepts
-- 🔬 atom like state managment
+- ⚙️ Functional programing concepts
+- 🔬 Atom like state managment
 - 🔥 Hot Module Replacement
-- 💎 crystal clean connection between state and UI
+- 💎 Crystal clean connection between state and UI
+- ✨ Super clean webpack
 
 ## Development
 
