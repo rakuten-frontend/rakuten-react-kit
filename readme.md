@@ -22,6 +22,7 @@
 - ⚙️ functional programing concepts
 - 🔬 atom like state managment
 - 🔥 Hot Module Replacement
+- 💎 crystal clean connection between state and UI
 
 ## Development
 
