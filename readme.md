@@ -3,11 +3,18 @@
 </p>
 <p align="center">functional programming concepts and clear view/state relations</p>
 <p align="center">
-[![Docs](https://img.shields.io/badge/docs-wiki-blue.svg)](https://github.com/rakuten-frontend/rakuten-react-kit/wiki)
-[![Gitter](https://img.shields.io/gitter/room/rakuten-frontend/rakuten-react-kit.svg?style=flat)](https://gitter.im/rakuten-frontend/rakuten-react-kit)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<a href="https://github.com/rakuten-frontend/rakuten-react-kit/wiki">
+  <img alt="Docs" src="https://img.shields.io/badge/docs-wiki-blue.svg)" />
+</a>
 
+<a href="https://gitter.im/rakuten-frontend/rakuten-react-kit">
+  <img alt="Gitter" src="https://img.shields.io/gitter/room/rakuten-frontend/rakuten-react-kit.svg?style=flat)" />
+</a>
 
+<a href="https://opensource.org/licenses/MIT">
+  <img alt="MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg)" />
+</a>
+<hr>
 </p>
 
 - ⚙️ functional programing concepts
