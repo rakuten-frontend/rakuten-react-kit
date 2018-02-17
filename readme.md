@@ -20,7 +20,7 @@
 ## Includes
 
 - ⚙️ Functional programing concepts
-- 🔬 Atom like state managment
+- 🔬 Clojure atom like state managment
 - 🔥 Hot Module Replacement
 - 💎 Crystal clean connection between state and UI
 - ✨ Super clean webpack
