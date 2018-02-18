@@ -1,5 +1,5 @@
 
-<p align="center"><img style="max-height:125px" src="logo.svg" />
+<p align="center"><img src="logo.svg" />
 </p>
 <p align="center">Immutable state. Live programming environment. Functional programing concepts </p>
 <hr>
