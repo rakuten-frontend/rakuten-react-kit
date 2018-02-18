@@ -9,7 +9,7 @@
 
 import { getLogger } from 'domain/logger';
 import { Item, DetailItem, DetailItemFromNetwork } from 'domain/store/main';
-import { updateAllItems, updateFilteredItems, updateDetailItem } from 'domain/store/reducers/main'
+import { updateAllItems, updateFilteredItems, updateDetailItem, updateLoading } from 'domain/store/reducers/main'
 
 type Pokemon = { pokemon: {pokemon: { name: string, url: string }}[] };
 
@@ -32,6 +32,7 @@ export async function getList() {
 
 export async function getDetailByName(name: string) {
   logger.debug('Requesting from network','- element -', name);
+  updateLoading(true);
   const resp = await fetch(`${URL_DETAIL}${name}`);
   if (resp.ok) {
     return resp.json()
@@ -57,4 +58,5 @@ export function onListFromNetwork(list : Array<Item>) {
 export function onDetailFromNetwork(detail : DetailItemFromNetwork) {
   logger.debug('Detail from network');
   updateDetailItem(camelCaseImageFront(detail));
+  updateLoading(false);
 }

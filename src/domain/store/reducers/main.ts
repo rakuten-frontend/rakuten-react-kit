@@ -31,3 +31,11 @@ export function updateDetailItem(detail: DetailItem){
   logger.debug(`Update detail item ${ detail.name }`);
   return store.swap(oldState  => ({...oldState, detail }));
 }
+
+export function updateShadowColor(shadowColor: string) {
+  return store.swap(oldState => ({...oldState, shadowColor}));
+}
+
+export function updateLoading(loading: boolean) {
+  return store.swap(oldState => ({...oldState, loading}));
+}

@@ -28,3 +28,11 @@ export function filteredItems(): Array<Item> {
 export function detailItem(): DetailItem {
   return state().detail;
 }
+
+export function shadowColor(): string {
+  return state().shadowColor;
+}
+
+export function loading(): boolean {
+  return state().loading;
+}

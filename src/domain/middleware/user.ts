@@ -11,7 +11,7 @@ import { getLogger } from 'domain/logger';
 import {filter, map, every } from 'lodash';
 import { Item } from 'domain/store/main';
 import { allItems } from 'domain/store/selectors/main';
-import { updateFilteredItems } from 'domain/store/reducers/main';
+import { updateFilteredItems, updateShadowColor } from 'domain/store/reducers/main';
 
 const logger = getLogger('Middleware/user');
 
@@ -30,4 +30,8 @@ function filterByName(name: string): Array<Item> {
 export function onChangeIncrementalSearch(name: string): void {
   logger.debug('Incremental Search By Name');
   updateFilteredItems(filterByName(name));
+}
+
+export function onMouseMove(e: MouseEvent) {
+  updateShadowColor(`#${(e.x + e.y).toString(16)}`);
 }

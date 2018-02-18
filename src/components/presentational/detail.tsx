@@ -13,35 +13,50 @@
  */
 
 import * as React from 'react';
-import { Logo } from 'components/presentational/rakuten-logo';
 import { DetailItem } from 'domain/store/main';
+import Fairybread from 'fairybread';
 
 // Exports List as a importable function
-export function Detail( { detail } :
-                        { detail: DetailItem }) {
+export default function Detail( { detail, loading } :
+                        { detail: DetailItem, loading: boolean }) {
 
-  return(
-    <div className='content'>
-      <div className='header'>
-        <div className='link-back'>
-          <a href='javascript:history.back()'>&lt;&lt; Back</a>
-        </div>
-        <Logo
-          height='100px'
-          width='100px'
-        />
-        <h1>Rakuten React Kit</h1>
-      </div>
-      <div className='detail-info-container'>
-        <div className='detail-info'>
-          <img src={ detail.sprites.frontDefault } alt={detail.name} />
-          <ul>
-            <li>name : { detail.name }</li>
-            <li>height : { detail.height }</li>
-            <li>weight : { detail.weight }</li>
-          </ul>
-        </div>
-      </div>
+  const sheet = new Fairybread();
+  sheet.add('i', 'font-size:50px');
+  sheet.add('td', 'width: 150px');
+
+  return <div className={`${sheet.id} row`}>
+    <style>{sheet.render('raw').css}</style>
+    <div className="column-sm-10">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Height</th>
+            <th>Weight</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            loading?
+              <tr>
+                <td>Now loading ...</td>
+                <td></td>
+                <td></td>
+              </tr>:
+              <tr>
+                <td>{detail.name}</td>
+                <td>{detail.height}</td>
+                <td>{detail.weight}</td>
+              </tr>
+          }
+        </tbody>
+      </table>
     </div>
-  );
+    <div className="column-sm-2">
+      {
+        !loading  &&
+          <img src={ detail.sprites.frontDefault } alt={detail.name} />   
+      }
+    </div>
+ </div>;
 }

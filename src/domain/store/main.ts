@@ -39,7 +39,9 @@ export type State = {
   currentPage: Page,
   allItems: Array<Item>,
   filteredItems: Array<Item>,
-  detail: DetailItem
+  detail: DetailItem,
+  shadowColor: string,
+  loading: boolean
 };
 
 const defaultState : State = {
@@ -53,7 +55,9 @@ const defaultState : State = {
     sprites: {
       frontDefault: ''
     }
-  }
+  },
+  shadowColor: '#000',
+  loading: true
 };
 
 export const store = createAtom(defaultState);

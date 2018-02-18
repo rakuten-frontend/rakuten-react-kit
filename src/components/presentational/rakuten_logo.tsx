@@ -9,7 +9,7 @@
 
 import React from 'react'
 
-export function Logo ({ height,
+export default function Logo ({ height,
                         width
                       } :
                       { height: string,
