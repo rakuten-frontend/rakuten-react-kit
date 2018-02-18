@@ -7,38 +7,44 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-/*
- * BOF: src/domain/store/state/main.js
- * This file is contains our application state and type definitions.
- */
+import { createAtom } from 'js-atom';
 
-// @flow
+export type HomePage = { name: 'HOME_PAGE' };
 
-type HomePage = { name: 'HOME_PAGE' };
-type DetailPage = { name: 'DETAIL_PAGE' };
+export type DetailPage = { name: 'DETAIL_PAGE' };
+
 export type Page = HomePage | DetailPage;
+
 export type Item = { name: string, url: string };
+
 export type DetailItem = {
   name: string,
   height: number,
   weight: number,
   sprites: {
-    frontDefault: string,
-  },
+    frontDefault: string
+  }
 };
+
 export type DetailItemFromNetwork = {
+  name: string,
+  height: number,
+  weight: number,
   sprites: {
-    front_default: string,
-  },
+    front_default: string
+  }
 };
+
 export type State = {
   currentPage: Page,
   allItems: Array<Item>,
   filteredItems: Array<Item>,
   detail: DetailItem,
+  shadowColor: string,
+  loading: boolean
 };
 
-const defaultState = {
+const defaultState : State = {
   currentPage: { name: 'HOME_PAGE' },
   allItems: [],
   filteredItems: [],
@@ -47,13 +53,11 @@ const defaultState = {
     height: 0,
     weight: 0,
     sprites: {
-      frontDefault: '',
-    },
+      frontDefault: ''
+    }
   },
+  shadowColor: '#000',
+  loading: true
 };
 
-export default defaultState;
-
-/*
- * EOF: src/domain/store/state/main.js
- */
+export const store = createAtom(defaultState);
