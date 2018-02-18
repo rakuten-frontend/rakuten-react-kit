@@ -2,71 +2,30 @@
   "name": "rakuten-react-kit",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --content-base build --hot=true --port 9090 --config webpack.config.js",
-    "flow-server": "flow server",
-    "flow": "flow || true",
-    "build": "webpack -p --config webpack.config.js",
-    "eslint": "eslint 'src/**/*.{js,jsx}' --fix",
-    "sass-lint": "sass-lint -v",
-    "lint-staged": "lint-staged",
-    "lint-pass": "echo '\\033[4;32m♡' Awsome! You are ready to commit ♡' \\033[0m'",
-    "prettify": "prettier --single-quote --print-width 120 --trailing-comma es5 --write '{src,__{tests,mocks}__}/**/*.{js,jsx}'"
+    "build": "webpack --config webpack.config.js",
+    "start": "webpack-dev-server --content-base build --hot --inline"
   },
   "author": "Adam Munoz",
   "license": "MIT",
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "prettier --single-quote --print-width 120 --trailing-comma es5 --write",
-      "git add",
-      "flow",
-      "eslint --cache --max-warnings 0"
-    ]
-  },
-  "pre-commit": [
-    "lint-staged",
-    "lint-pass"
-  ],
   "devDependencies": {
-    "babel-core": "^6.25.0",
-    "babel-eslint": "^8.2.1",
-    "babel-loader": "^7.1.0",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-es2015": "^6.22.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.26.1",
-    "eslint": "^4.15.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-import-resolver-webpack": "^0.8.4",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-flowtype": "^2.35.1",
-    "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.5.1",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "file-loader": "^0.10.0",
-    "flow-bin": "^0.39.0",
-    "lint-staged": "^6.0.0",
-    "node-sass": "^4.5.0",
-    "pre-commit": "^1.2.2",
-    "prettier": "^1.9.2",
-    "sass-lint": "^1.10.2",
-    "sass-loader": "^6.0.2",
-    "style-loader": "^0.13.1",
-    "webpack": "^2.2.1",
-    "webpack-dev-server": "^2.4.1"
+    "@types/node": "^8.0.53",
+    "awesome-typescript-loader": "^3.4.0",
+    "fairybread": "^1.3.1",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.6.1",
+    "webpack": "^3.8.1",
+    "webpack-dashboard": "^1.0.2",
+    "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
-    "axios": "^0.15.3",
     "empty": "^0.10.1",
-    "immutable": "^3.8.1",
+    "js-atom": "^0.4.0",
     "js-logger": "^1.3.0",
-    "lodash": "^4.17.4",
     "page": "^1.7.1",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "redux": "^3.7.0"
+    "react-dom": "^16.0.0"
   }
 }

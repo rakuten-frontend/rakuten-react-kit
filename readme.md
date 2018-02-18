@@ -1,53 +1,43 @@
-# Rakuten React kit
 
-Docs: https://github.com/rakuten-frontend/rakuten-react-kit/wiki
+<p align="center"><img height=125px src="logo.png" />
+</p>
+<p align="center">Immutable state. Live programming environment. Functional programing concepts </p>
+<hr>
+<p align="center">
+<a href="https://github.com/rakuten-frontend/rakuten-react-kit/wiki">
+  <img alt="Docs" src="https://img.shields.io/badge/docs-wiki-blue.svg" />
+</a>
 
-## Structure
-```
-/
-├── build/
-│   ├──   index.html
-│   └──   bundle.js          : Application bundle
-│
-├── node_modules/            : Node dependencies
-│
-├── src/
-│   ├── components/          : Application Components
-│   ├── domain/              : Business Logic
-│   │    ├── Middleware/     : Actors who dispatch the actions
-│   │    └── Store/
-│   │         ├── actions/
-│   │         ├── reducers/
-│   │         └── state/
-│   │
-│   ├── style/               : Global Styles
-│   └── main.jsx             : Application Entry Point
-│
-│
-├── .gitignore
-├── .flowconfig
-├── .css.js.flow
-├── package.json
-├── readme.md
-└── webpack.config.js        : Webpack config file
-```
+<a href="https://gitter.im/rakuten-frontend/rakuten-react-kit">
+  <img  src="https://img.shields.io/gitter/room/rakuten-frontend/rakuten-react-kit.svg?style=flat" />
+</a>
 
-## Install Dependencies
+<a href="https://opensource.org/licenses/MIT">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+</a>
+</p>
+
+## Includes
+
+- ⚙️ Functional programing concepts
+- 🔬 Clojure atom like state managment
+- 🔥 Hot Module Replacement
+- 💎 Crystal clean connection between state and UI
+- ✨ Super clean webpack
+- 🏮 Less ceremony, more fun!
+
+## Local Development
+Install dependencies and start the live programing enviroment
 
 ```
 npm install
-```
-
-## Development
-
-Run server with HMR (Hot Module Replacement) at [localhost:9090](http://localhost:9090)
-
-```
 npm start
 ```
+a server with HMR (Hot Module Replacement) will start at [localhost:8080](http://localhost:8080)
+
 See more about Hot Module Replacement [here](https://webpack.github.io/docs/hot-module-replacement.html)
 
-## Production
+## Building for Production
 
 Create minified bundle for deployment in the `build` directory
 
