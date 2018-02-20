@@ -18,26 +18,25 @@ type OnRoute = (ctx: Context) => void;
 
 const logger = getLogger('Middleware/router');
 
-function detailRouter(onRoute : OnRoute) {
-  page('/detail/:name', onRoute );
+function detailRouter(onRoute: OnRoute) {
+  page('/detail/:name', onRoute);
 }
 
-function homeRouter(onRoute : OnRoute) {
-  page('', onRoute );
+function homeRouter(onRoute: OnRoute) {
+  page('', onRoute);
 }
 export default function startRouters() {
-
   detailRouter((ctx: Context) => {
     logger.debug('Detail route');
     const name = ctx.params.name;
     getDetailByName(name).then(onDetailFromNetwork);
-    updateCurrentPage({ name: 'DETAIL_PAGE' })
+    updateCurrentPage({ name: 'DETAIL_PAGE' });
   });
 
-  homeRouter((ctx) => {
+  homeRouter(ctx => {
     logger.debug('Home route');
     getList().then(onListFromNetwork);
-    updateCurrentPage({ name: 'HOME_PAGE' })
+    updateCurrentPage({ name: 'HOME_PAGE' });
   });
 
   page();
