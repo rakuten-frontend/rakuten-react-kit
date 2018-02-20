@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.js",
-    "start": "webpack-dev-server --content-base build --hot --inline"
+    "start": "webpack-dev-server --content-base build --hot --inline",
+    "format": "prettier --write 'src/**/*.ts'"
   },
   "author": "Adam Munoz",
   "license": "MIT",
@@ -14,6 +15,7 @@
     "@types/node": "^8.0.53",
     "awesome-typescript-loader": "^3.4.0",
     "fairybread": "^1.3.1",
+    "prettier": "1.10.2",
     "source-map-loader": "^0.2.3",
     "typescript": "^2.6.1",
     "webpack": "^3.8.1",
