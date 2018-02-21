@@ -8,7 +8,7 @@
  */
 
 import { getLogger } from 'domain/logger';
-import {filter, map, every } from 'lodash';
+import { filter, map, every } from 'lodash';
 import { Item } from 'domain/store/main';
 import { allItems } from 'domain/store/selectors/main';
 import { updateFilteredItems, updateShadowColor } from 'domain/store/reducers/main';

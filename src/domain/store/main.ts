@@ -15,36 +15,36 @@ export type DetailPage = { name: 'DETAIL_PAGE' };
 
 export type Page = HomePage | DetailPage;
 
-export type Item = { name: string, url: string };
+export type Item = { name: string; url: string };
 
 export type DetailItem = {
-  name: string,
-  height: number,
-  weight: number,
+  name: string;
+  height: number;
+  weight: number;
   sprites: {
-    frontDefault: string
-  }
+    frontDefault: string;
+  };
 };
 
 export type DetailItemFromNetwork = {
-  name: string,
-  height: number,
-  weight: number,
+  name: string;
+  height: number;
+  weight: number;
   sprites: {
-    front_default: string
-  }
+    front_default: string;
+  };
 };
 
 export type State = {
-  currentPage: Page,
-  allItems: Array<Item>,
-  filteredItems: Array<Item>,
-  detail: DetailItem,
-  shadowColor: string,
-  loading: boolean
+  currentPage: Page;
+  allItems: Array<Item>;
+  filteredItems: Array<Item>;
+  detail: DetailItem;
+  shadowColor: string;
+  loading: boolean;
 };
 
-const defaultState : State = {
+const defaultState: State = {
   currentPage: { name: 'HOME_PAGE' },
   allItems: [],
   filteredItems: [],
