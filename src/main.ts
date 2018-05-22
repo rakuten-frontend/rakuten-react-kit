@@ -11,7 +11,19 @@ import { store } from 'domain/store/main';
 import render from 'renderer';
 import startRouters from 'domain/middleware/router';
 import { onMouseMove } from 'domain/middleware/user';
+import tagConfig from 'tagConfig';
 
-store.addWatch('renderLoop', render);
-addEventListener('mousemove', onMouseMove);
-startRouters();
+class ExoComponent extends HTMLElement {
+  constructor() {
+    super();
+    this.render();
+  }
+  render () {
+    store.addWatch('renderLoop', render);
+    addEventListener('mousemove', onMouseMove);
+    startRouters();
+  }
+}
+
+window.customElements.define(tagConfig.name, ExoComponent);
+
