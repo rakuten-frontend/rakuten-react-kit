@@ -10,13 +10,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { getLogger } from 'domain/logger';
+import tagConfig from 'tagConfig';
 
 const logger = getLogger('Renderer');
 
 export default async function render() {
   logger.time('DOM Render');
   const App = (await import('components/container/app')).App;
-  ReactDOM.render(<App />, document.getElementById('app'));
+  ReactDOM.render(<App />, document.getElementsByTagName(tagConfig.name)[0]);
   logger.timeEnd('DOM Rendered');
 }
 
